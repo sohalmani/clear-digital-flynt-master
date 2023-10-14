@@ -1,0 +1,52 @@
+[is='flynt-block-three-col-content'] {
+  .intro {
+    max-width: 117rem;
+
+    &-eyebrow {
+      @include typography-eyebrow;
+    }
+
+    &-blurb {
+      @include typography-blurb;
+      @include spacing('large');
+    }
+  }
+
+  .features {
+    @include row;
+
+    .art {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .feature {
+    @include col(12);
+    @include spacing('large');
+
+    @media (min-width: $breakpoint-tablet) {
+      @include col(6);
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      @include col(4);
+      padding-right: 8.33333%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .icon-wrap {
+      height: 80px;
+      margin-bottom: 2rem;
+      max-width: 80px;
+    }
+
+    p {
+      margin-top: 1rem;
+    }
+  }
+}

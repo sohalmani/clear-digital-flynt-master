@@ -1,0 +1,52 @@
+<flynt-component name="BlockImageTwoCol" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+	<div data-ref="slider" class="columns-outer swiper">
+		<div class="columns swiper-wrapper">
+			<div class="column swiper-slide">
+				<figure class="figure">
+					<img class="figure-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/man-holding-phone.webp" width="800" height="1090" alt="Background Image">
+				</figure>
+				<div class="content">
+					<div class="logo">
+						<img class="logo-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/logo-digimarc.webp" width="290" height="61" alt="Logo">
+					</div>
+					<h2 class="h3">
+						<span class="art art--circleWhite">27%</span>
+						increase on click-through rates.
+					</h2>
+					<a href="/" class="button button--text">View case study</a>
+				</div>
+			</div>
+			<div class="column swiper-slide">
+				<figure class="figure">
+					<img class="figure-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/office-discussion.webp" width="800" height="1090" alt="Background Image">
+				</figure>
+				<div class="content">
+					<div class="logo">
+						<img class="logo-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/logo-leadspace.webp" width="290" height="61" alt="Logo">
+					</div>
+					<h2 class="h3">53%
+						<span class="marker marker--crossout">increase</span>
+						on engagement metrics.</h2>
+					<a href="/" class="button button--text">View case study</a>
+				</div>
+			</div>
+			<div class="column swiper-slide">
+				<video class="video" width="640" height="640" aria-hidden="true" autoplay muted loop poster="{{ theme.link }}/Components/BlockImageTwoCol/Assets/girl-in-vr-headset.webp">
+					<source src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/Videos/video-dummy.mp4" type="video/mp4">
+					<source src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/Videos/video-dummy.webm" type="video/webm">
+				</video>
+				<div class="content">
+					<div class="logo">
+						<img class="logo-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/logo-digimarc.webp" width="290" height="61" alt="Logo">
+					</div>
+					<h2 class="h3">
+						<span class="marker marker--circleWhite">27%</span>
+						increase on click-through rates.</h2>
+					<a href="/" class="button button--text">View case study</a>
+				</div>
+			</div>
+		</div>
+		<div data-ref="prev" class="swiper-button-prev"></div>
+		<div data-ref="next" class="swiper-button-next"></div>
+	</div>
+</flynt-component>

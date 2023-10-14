@@ -1,0 +1,122 @@
+flynt-component[name='SliderQuote'] {
+  overflow: hidden;
+
+  .intro {
+    @include spacing('medium', margin-bottom);
+  }
+
+  .logos {
+    @include spacing('medium', margin-bottom);
+
+    &-list {
+      @include reset-list;
+      @include row;
+      @include row-cols(2);
+
+      @media (min-width: $breakpoint-tablet) {
+        @include row-cols(3);
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        @include row-cols(4);
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        @include row-cols(5);
+      }
+    }
+  }
+
+  .logo {
+    height: 8.4rem;
+    margin: auto;
+    max-width: 19.3rem;
+    text-align: center;
+
+    &-image {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .testimonials {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .testimonial {
+    @include row;
+
+    &-outer {
+      @include col(12);
+    }
+
+    &-image {
+      @include col(12);
+      height: 100%;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        @include col(5);
+      }
+    }
+
+    &-figure {
+      height: 100%;
+      margin: 0;
+    }
+
+    &-figureImage {
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+    &-content {
+      @include col;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 4rem;
+      position: relative;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        @include offset(1);
+        margin-top: 0;
+      }
+    }
+
+    &-text {
+      @include spacing('medium');
+      border: 0;
+      font-style: normal;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    &-author {
+      margin-top: 2rem;
+    }
+
+    &-author-logo {
+      @include spacing('large');
+      height: 2.2rem;
+      max-width: 15.7rem;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-link {
+      @include spacing('large');
+    }
+
+    &-sliderArrow {
+      &--prev,
+      &--next {
+        background-color: $color-background-dark;
+      }
+    }
+  }
+}

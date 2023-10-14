@@ -1,0 +1,86 @@
+<flynt-component name="SliderQuote" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+	{# <script type="application/json">{{ jsonData|json_encode }}</script> #}
+	<div class="container">
+		<div class="intro">
+			<h3>Our clients.</h3>
+		</div>
+		<div class="logos">
+			<ul class="logos-list">
+				<li class="logos-item">
+					<div class="logo">
+						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cisco.svg" width="210" height="84" alt="Logo">
+					</div>
+				</li>
+				<li class="logos-item">
+					<div class="logo">
+						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-vmware.svg" width="210" height="84" alt="Logo">
+					</div>
+				</li>
+				<li class="logos-item">
+					<div class="logo">
+						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-mcafee.svg" width="210" height="84" alt="Logo">
+					</div>
+				</li>
+				<li class="logos-item">
+					<div class="logo">
+						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-tenable.svg" width="210" height="84" alt="Logo">
+					</div>
+				</li>
+				<li class="logos-item">
+					<div class="logo">
+						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-stanford.svg" width="210" height="84" alt="Logo">
+					</div>
+				</li>
+			</ul>
+		</div>
+    <div class="testimonials-slider swiper" data-ref="slider">
+      <div class="testimonials swiper-wrapper">
+        <div class="testimonial-outer swiper-slide">
+          <div class="testimonial">
+            <div class="testimonial-image">
+              <figure class="testimonial-figure">
+                <img class="testimonial-figureImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/pattern-hexagon-green.webp" width="570" height="491" alt="Quote Image">
+              </figure>
+            </div>
+            <div class="testimonial-content">
+              <span class="art art--arrowWhite"></span>
+              <span class="art art--quote"></span>
+              <blockquote class="testimonial-text">
+                <h4>Aenean aliquet malesuada quam et placerat. Suspendisse pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus lorem ipsum.</h4>
+              </blockquote>
+              <p class="testimonial-author">Jane Doe, <span>CEO</span></p>
+              <div class="testimonial-author-logo">
+                <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
+              </div>
+              <a href="/" class="testimonial-link button button--text">View case study</a>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-outer swiper-slide">
+          <div class="testimonial">
+            <div class="testimonial-image">
+              <figure class="testimonial-figure">
+                <img class="testimonial-figureImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/pattern-hexagon-green.webp" width="570" height="491" alt="Quote Image">
+              </figure>
+            </div>
+            <div class="testimonial-content">
+              <span class="art art--arrowWhite"></span>
+              <span class="art art--quote"></span>
+              <blockquote class="testimonial-text">
+                <h4>Aenean aliquet malesuada quam et placerat. Suspendisse pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus lorem ipsum.</h4>
+              </blockquote>
+              <p class="testimonial-author">Jane Doe, <span>CEO</span></p>
+              <div class="testimonial-author-logo">
+                <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
+              </div>
+              <a href="/" class="testimonial-link button button--text">View case study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-sliderProgressbar swiper-pagination" data-ref="pagination"></div>
+      <div class="testimonial-sliderArrow testimonial-sliderArrow--prev swiper-button-prev" data-ref="prev"></div>
+      <div class="testimonial-sliderArrow testimonial-sliderArrow--next swiper-button-next" data-ref="next"></div>
+    </div>
+  </div>
+</flynt-component>

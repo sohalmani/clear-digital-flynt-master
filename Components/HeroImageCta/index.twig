@@ -1,0 +1,18 @@
+<flynt-component name="HeroImageCta" class="componentSpacing overlay-grid" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <video class="video" width="640" height="640" aria-hidden="true" autoplay muted loop poster="{{ theme.link }}/Components/HeroImageCta/Assets/poster-image.webp">
+    <source src="{{ theme.link }}/Components/HeroImageCta/Assets/video-dummy.mp4" type="video/mp4">
+    <source src="{{ theme.link }}/Components/HeroImageCta/Assets/video-dummy.webm" type="video/mp4">
+  </video>
+	<div class="container">
+    <div class="intro">
+      <p class="intro-eyebrow">Hello! We are Clear Digital.</p>
+      <h1 class="h2 intro-headline">We build websites and
+        <span class="marker marker--underline">digital</span>
+        brand experiences for modern B2B organizations.</h1>
+      <a href="/" class="intro-cta button button--text">Our approach</a>
+    </div>
+	</div>
+  <div class="container container--playButton">
+    <a href="https://youtu.be/UtoQ1TsQLpE" class="playButton video--playInModal" target="_blank" aria-label="Play video">Play video</a>
+  </div>
+</flynt-component>

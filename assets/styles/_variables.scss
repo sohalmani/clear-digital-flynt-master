@@ -1,0 +1,449 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+
+:root,
+[data-theme='reset'] {
+  --color-accent: hsl(329, 96%, 54%);
+  --color-background: hsla(0, 0%, 100%, 1);
+  --color-background-secondary: hsl(0, 0%, 60%);
+  --color-border: hsl(0, 0%, 90%);
+  --color-border-secondary: hsl(0, 0%, 19%, 0.68);
+  --color-text: hsl(0, 0%, 0%);
+  --color-text-muted: hsla(0, 0%, 19%, 0.8);
+  --color-error: hsl(343, 98%, 46%);
+}
+
+[data-theme='light'] {
+  --color-background: hsl(260, 6%, 90%);
+  --color-text: hsla(212, 100%, 15%, 1);
+  --color-border: hsla(212, 100%, 15%, 0.7);
+  --color-border-secondary: var(--color-border);
+}
+
+[data-theme='dark'] {
+  --color-accent: hsl(329, 96%, 54%);
+  --color-background: hsl(0, 0%, 0%);
+  --color-background-secondary: hsl(228, 56%, 98%, 0.06);
+  --color-border-secondary: hsl(0, 0%, 90%, 0.68);
+  --color-text: hsla(0, 0%, 100%, 1);
+  --color-text-muted: hsl(0, 0%, 100%, 0.8);
+}
+
+$breakpoint-mobile-horizontal: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-horizontal: 992px;
+$breakpoint-desktop: 1200px;
+
+:root {
+  /**
+   * FOUC can be reduced with good matching fallback font.
+   * https://meowni.ca/font-style-matcher/ or
+   * https://github.com/pixel-point/fontpie
+   */
+  --font-family-heading: 'Poppins', sans-serif;
+  --font-family-text: 'Poppins', sans-serif;
+  --font-size-body: 1.6rem;
+  --font-size-body-small: 1rem;
+  --flow-space: 1.5rem;
+  --flow-space-small: 2rem;
+  --flow-space-medium: 3rem;
+  --flow-space-large: 4rem;
+  --column-gap: 1.5rem;
+
+  --content-max-width: 69rem;
+  --content-max-width-wide: 91rem;
+  --content-max-width-full: 160rem;
+
+  --box-spacing: clamp(1rem, 2.50vw + 0.25rem, 2.25rem);
+  --container-spacing: 1.6rem;
+  --component-spacing: 7rem;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  :root {
+    --flow-space: 2rem;
+    --flow-space-small: 3rem;
+    --flow-space-medium: 5rem;
+    --flow-space-large: 7rem;
+
+    --container-spacing: 6.8rem;
+    --component-spacing: 10rem;
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  :root {
+    --flow-space-large: 8rem;
+    --column-gap: 3rem;
+
+    --container-spacing: 9.5rem;
+    --component-spacing: 15rem;
+  }
+}
+
+
+// --------------------------------------------------------
+$container-max-width-desktop: 160rem;
+$container-max-width-tablet: 160rem;
+$container-max-width: 100%;
+$container-padding-desktop: 9.5rem;
+$container-padding-tablet: 95px;
+$container-padding-mobile: 16px;
+$content-max-width: 80rem;
+$component-spacing-desktop: 15rem;
+$component-spacing-tablet: 7rem;
+$component-spacing-mobile: 7rem;
+$gutter-width-desktop: 1.5rem;
+$gutter-width-tablet: 1.5rem;
+$gutter-width: 16px;
+$spacing-large-desktop: 5rem;
+$spacing-large-tablet: 5rem;
+$spacing-large: 4rem;
+$spacing-medium-desktop: 3rem;
+$spacing-medium-tablet: 3rem;
+$spacing-medium: 2rem;
+$spacing-small-desktop: 2rem;
+$spacing-small-tablet: 2rem;
+$spacing-small: 1.5rem;
+
+$color-brand: #fa198c;
+$color-accent: #fa198c;
+$color-background: #fff;
+
+$color-contrast: #989898;
+$color-text: #000;
+$color-headline: #000;
+$color-border: #000;
+
+$color-background-light: #e5e4e7;
+$color-background-dark: #000;
+$color-background-hero: #d9dfdf;
+
+
+// Shorthands to help writing easier to understand code.
+
+@function divide($dividend, $divisor, $precision: 10) {
+  $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+  $dividend: math.abs($dividend);
+  $divisor: math.abs($divisor);
+  @if $dividend == 0 {
+    @return 0;
+  }
+  @if $divisor == 0 {
+    @error 'Cannot divide by 0';
+  }
+  $remainder: $dividend;
+  $result: 0;
+  $factor: 10;
+  @while ($remainder > 0 and $precision >= 0) {
+    $quotient: 0;
+    @while ($remainder >= $divisor) {
+      $remainder: $remainder - $divisor;
+      $quotient: $quotient + 1;
+    }
+    $result: $result * 10 + $quotient;
+    $factor: $factor * 0.1;
+    $remainder: $remainder * 10;
+    $precision: $precision - 1;
+    @if ($precision < 0 and $remainder >= $divisor * 5) {
+      $result: $result + 1;
+    }
+  }
+  $result: $result * $factor * $sign;
+  $dividend-unit: math.unit($dividend);
+  $divisor-unit: math.unit($divisor);
+  $unit-map: (
+    'px': 1px,
+    'rem': 1rem,
+    'em': 1em,
+    '%': 1%
+  );
+  @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
+    $result: $result * map.get($unit-map, $dividend-unit);
+  }
+  @return $result;
+}
+
+@mixin font-face(
+  $family,
+  $file,
+  $weight: 'normal',
+  $style: 'normal',
+  $woff2: true,
+  $base-path: '../assets/fonts/'
+) {
+  @font-face {
+    font-display: swap;
+    font-family: $family;
+    font-style: string.unquote($style);
+    font-weight: string.unquote($weight);
+    @if $woff2 {
+      src: url($base-path+$file+'.woff2') format('woff2'),
+        url($base-path+$file+'.woff') format('woff');
+    } @else {
+      src: url($base-path+$file+'.woff') format('woff');
+    }
+  }
+}
+
+@mixin center(
+  $max-width: $container-max-width,
+  $padding: $container-padding-mobile
+) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin reset-content-margins($direction: 'both') {
+  @if ($direction == 'both' or $direction == 'top') {
+    > :first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  @if ($direction == 'both' or $direction == 'bottom') {
+    > :last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@mixin reset-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+* Grid Mixin
+*
+* Applies a flexbox grid to a container element. All direct children will be modified to create a column based grid.
+*/
+@mixin grid(
+  $columns,
+  $alignment: flex-start,
+  $gutter-horizontal: $gutter-width,
+  $gutter-vertical: $gutter-width
+) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $alignment;
+  width: 100%;
+
+  > * {
+    width: calc((#{100% / $columns}) -
+    (#{$columns - 1} / #{$columns} * #{$gutter-horizontal}));
+
+    &:nth-child(n) {
+      margin-right: $gutter-horizontal;
+      margin-top: 0;
+    }
+
+    &:nth-child(1n + #{$columns + 1}) {
+      margin-top: $gutter-vertical;
+    }
+
+    &:nth-child(#{$columns}n) {
+      margin-right: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin reset-grid {
+  display: block;
+
+  > * {
+    width: auto;
+
+    &:nth-child(n) {
+      margin-right: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin row($gutter: null) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: if($gutter != null, $gutter, $gutter-width * -1);
+  margin-right: if($gutter != null, $gutter, $gutter-width * -1);
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-left: if($gutter != null, $gutter, $gutter-width-tablet * -1);
+    margin-right: if($gutter != null, $gutter, $gutter-width-tablet * -1);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    margin-left: if($gutter != null, $gutter, $gutter-width-desktop * -1);
+    margin-right: if($gutter != null, $gutter, $gutter-width-desktop * -1);
+  }
+
+  > * {
+    padding-left: if($gutter != null, $gutter, $gutter-width);
+    padding-right: if($gutter != null, $gutter, $gutter-width);
+
+    @media (min-width: $breakpoint-tablet) {
+      padding-left: if($gutter != null, $gutter, $gutter-width-tablet);
+      padding-right: if($gutter != null, $gutter, $gutter-width-tablet);
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      padding-left: if($gutter != null, $gutter, $gutter-width-desktop);
+      padding-right: if($gutter != null, $gutter, $gutter-width-desktop);
+    }
+  }
+}
+
+@mixin col($size: false, $columns: 12) {
+  @if $size {
+    @if $size == auto {
+      flex: 0 0 auto;
+      max-width: 100%; // Reset earlier grid tiers
+      width: auto;
+    } @else if $size == 0 {
+      @warn 'Number of columns cannot be zero.';
+    } @else if $size > $columns {
+      @warn 'Number of columns cannot exceed the total number of specified grid columns.';
+    } @else {
+      flex: 0 0 math.percentage(divide($size, $columns));
+      // Add a `max-width` to ensure content within each column does not blow out
+      // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+      // do not appear to require this.
+      max-width: math.percentage(divide($size, $columns));
+      width: 100%;
+    }
+  } @else {
+    // Flexible column with remaining space
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@mixin offset($size, $columns: 12) {
+  @if $size == 0 {
+    @warn '';
+  } @else if $size >= $columns {
+    @warn 'Offsetting by the width of an entire row isn\'t possible.';
+  } @else {
+    $num: divide($size, $columns);
+    margin-left: if($num == 0, 0, math.percentage($num));
+  }
+}
+
+@mixin row-cols($count, $columns: 12) {
+  @if $count == 0 {
+    @warn '';
+  } @else if $count > $columns {
+    @warn 'Number of columns cannot exceed the total number of specified grid columns.';
+  } @else {
+    > * {
+      flex: 0 0 divide(100%, $count);
+      max-width: divide(100%, $count);
+    }
+  }
+}
+
+@mixin spacing(
+  $size: 'medium',
+  $properties: margin-top,
+  $negative: false
+) {
+  $valid-properties: (
+    margin, margin-top, margin-bottom, margin-left, margin-right,
+    padding, padding-top, padding-bottom, padding-left, padding-right
+  );
+
+  @if type-of($properties) == 'string' {
+    $properties: list.append((), $properties);
+  }
+
+  @each $property in $properties {
+    @if str-index($property, 'padding') {
+      $negative: false;
+    }
+
+    @if index($valid-properties, $property) {
+      $value: $spacing-medium;
+
+      @if $size == large {
+        $value: $spacing-large;
+      } @else if $size == small {
+        $value: $spacing-small;
+      }
+
+      #{$property}: if($negative, $value * -1, $value);
+
+      @media (min-width: $breakpoint-tablet) {
+        $value: $spacing-medium-tablet;
+
+        @if $size == large {
+          $value: $spacing-large-tablet;
+        } @else if $size == small {
+          $value: $spacing-small-tablet;
+        }
+
+        #{$property}: if($negative, $value * -1, $value);
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        $value: $spacing-medium-desktop;
+
+        @if $size == large {
+          $value: $spacing-large-desktop;
+        } @else if $size == small {
+          $value: $spacing-small-desktop;
+        }
+
+        #{$property}: if($negative, $value * -1, $value);
+      }
+    } @else {
+      @warn 'Invalid property value! Use only "margin" or "padding" properties.';
+    }
+  }
+}
+
+@mixin typography-eyebrow() {
+  display: block;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@mixin typography-blurb() {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+}
