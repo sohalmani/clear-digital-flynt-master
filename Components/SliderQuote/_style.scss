@@ -44,6 +44,10 @@ flynt-component[name='SliderQuote'] {
   .testimonials {
     display: flex;
     flex-wrap: nowrap;
+
+    &-slider {
+      overflow: visible;
+    }
   }
 
   .testimonial {
@@ -91,6 +95,7 @@ flynt-component[name='SliderQuote'] {
       border: 0;
       font-style: normal;
       margin-bottom: 0;
+      margin-left: 0;
       margin-top: var(--flow-space-medium);
       padding: 0;
     }
