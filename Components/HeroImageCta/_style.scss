@@ -37,9 +37,11 @@ flynt-component[name='HeroImageCta'] {
   }
 
   .intro {
-    // &-eyebrow {
-    //   @include typography-eyebrow;
-    // }
+    max-width: 1290px;
+
+    &-eyebrow {
+      @include typography-eyebrow;
+    }
 
     &-cta {
       margin-block-start: var(--flow-space-small);
