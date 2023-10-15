@@ -37,6 +37,7 @@ flynt-component[name='SliderPosts'] {
 
     &-outer {
       @include col(12);
+      overflow: visible;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
         @include col(6);
@@ -98,7 +99,11 @@ flynt-component[name='SliderPosts'] {
 
     &-outer {
       @include col(11);
-      margin-right: calc(var(--column-gap) * 2);
+
+      &:not(:last-child) {
+        margin-right: calc(var(--column-gap) * 2);
+      }
+
     }
 
     &-image {

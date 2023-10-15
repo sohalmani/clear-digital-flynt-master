@@ -51,7 +51,7 @@ $breakpoint-desktop: 1200px;
   --content-max-width-wide: 91rem;
   --content-max-width-full: 160rem;
 
-  --box-spacing: clamp(1rem, 2.50vw + 0.25rem, 2.25rem);
+  --box-spacing: clamp(var(--flow-space-small), var(--flow-space-medium), var(--flow-space-large));
   --container-spacing: 1.6rem;
   --component-spacing: 7rem;
 }
