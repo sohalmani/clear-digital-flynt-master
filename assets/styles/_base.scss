@@ -612,12 +612,12 @@ flynt-component {
 }
 
 /**
-* Plugin Overrides
-*/
+ * Plugin Overrides
+ */
 
 // Swiper styling overrides
 .swiper {
-  --swiper-theme-color: #{$color-brand};
+  --swiper-theme-color: var(--color-accent);
   position: relative;
 }
 
@@ -636,7 +636,7 @@ flynt-component {
   }
 
   &::before {
-    background-color: $color-background-dark;
+    background-color: var(--color-text);
     content: '';
     display: block;
     height: 0.1rem;

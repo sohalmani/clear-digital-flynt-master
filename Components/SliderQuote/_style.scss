@@ -2,16 +2,18 @@ flynt-component[name='SliderQuote'] {
   overflow: hidden;
 
   .intro {
-    @include spacing('medium', margin-bottom);
+    margin-bottom: var(--flow-space-medium);
   }
 
   .logos {
-    @include spacing('medium', margin-bottom);
+    margin-bottom: var(--flow-space-medium);
 
     &-list {
-      @include reset-list;
       @include row;
       @include row-cols(2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
       @media (min-width: $breakpoint-tablet) {
         @include row-cols(3);
@@ -86,10 +88,10 @@ flynt-component[name='SliderQuote'] {
     }
 
     &-text {
-      @include spacing('medium');
       border: 0;
       font-style: normal;
       margin-bottom: 0;
+      margin-top: var(--flow-space-medium);
       padding: 0;
     }
 
@@ -98,8 +100,8 @@ flynt-component[name='SliderQuote'] {
     }
 
     &-author-logo {
-      @include spacing('large');
       height: 2.2rem;
+      margin-top: var(--flow-space-medium);
       max-width: 15.7rem;
 
       img {
@@ -109,13 +111,13 @@ flynt-component[name='SliderQuote'] {
     }
 
     &-link {
-      @include spacing('large');
+      margin-top: var(--flow-space-medium);
     }
 
     &-sliderArrow {
       &--prev,
       &--next {
-        background-color: $color-background-dark;
+        background-color: var(--color-background);
       }
     }
   }

@@ -9,11 +9,7 @@ flynt-component[name='SliderPosts'] {
       margin-top: 6rem;
 
       @media (min-width: $breakpoint-tablet) {
-        margin-top: $component-spacing-tablet;
-      }
-
-      @media (min-width: $breakpoint-desktop) {
-        margin-top: $component-spacing-desktop;
+        margin-top: var(--component-spacing);
       }
     }
   }
@@ -102,15 +98,7 @@ flynt-component[name='SliderPosts'] {
 
     &-outer {
       @include col(11);
-      margin-right: $gutter-width * 2;
-
-      @media (min-width: $breakpoint-tablet) {
-        margin-right: $gutter-width-tablet * 2;
-      }
-
-      @media (min-width: $breakpoint-desktop) {
-        margin-right: $gutter-width-desktop * 2;
-      }
+      margin-right: calc(var(--column-gap) * 2);
     }
 
     &-image {
@@ -131,8 +119,8 @@ flynt-component[name='SliderPosts'] {
       position: absolute;
 
       p {
-        @include spacing('medium');
         display: none;
+        margin-top: var(--flow-space-medium);
 
         @media (min-width: $breakpoint-tablet) {
           display: block;
@@ -157,16 +145,18 @@ flynt-component[name='SliderPosts'] {
     }
 
     &-list {
-      @include reset-list;
       @include row;
       align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
       .logos-item {
         @include col(6);
         align-items: center;
         display: flex;
         justify-content: center;
-        margin-top: $spacing-large;
+        margin-top: var(--flow-space-large);
 
         @media (min-width: $breakpoint-tablet) {
           @include col(3);

@@ -1,4 +1,4 @@
-<div class="flyntComponent componentSpacing {{ options.theme }} themeLight" is="flynt-block-tabs-with-content">
+<flynt-component name="TabsWithContent" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
 	{# <script type="application/json">{{ jsonData|json_encode }}</script> #}
 	<div class="container">
 		<div class="intro">
@@ -551,4 +551,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</flynt-component>

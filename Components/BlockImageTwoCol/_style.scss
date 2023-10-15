@@ -24,27 +24,11 @@ flynt-component[name='BlockImageTwoCol'] {
       }
 
       .swiper-button-next {
-        right: calc(-100% + #{$container-padding-mobile}) !important;
-
-        @media (min-width: $breakpoint-tablet) {
-          right: calc(-100% + #{$container-padding-tablet}) !important;
-        }
-
-        @media (min-width: $breakpoint-desktop) {
-          right: calc(-100% + #{$container-padding-desktop}) !important;
-        }
+        right: calc(-100% + var(--container-spacing)) !important;
       }
 
       .swiper-button-prev {
-        left: calc(-100% + #{$container-padding-mobile}) !important;
-
-        @media (min-width: $breakpoint-tablet) {
-          left: calc(-100% + #{$container-padding-tablet}) !important;
-        }
-
-        @media (min-width: $breakpoint-desktop) {
-          left: calc(-100% + #{$container-padding-desktop}) !important;
-        }
+        left: calc(-100% + var(--container-spacing)) !important;
       }
     }
   }
@@ -82,35 +66,26 @@ flynt-component[name='BlockImageTwoCol'] {
   }
 
   .content {
-    bottom: $component-spacing-mobile;
+    bottom: var(--component-spacing);
     left: 0;
-    padding-left: $container-padding-mobile;
-    padding-right: $container-padding-mobile;
+    padding-left: var(--container-spacing);
+    padding-right: var(--container-spacing);
     position: absolute;
     width: auto;
 
-    @media (min-width: $breakpoint-tablet) {
-      bottom: $component-spacing-tablet;
-      padding-left: $container-padding-tablet;
-      padding-right: $container-padding-tablet;
-    }
-
     @media (min-width: $breakpoint-desktop) {
-      bottom: $component-spacing-desktop;
       max-width: 66.66667%;
-      padding-left: $container-padding-desktop;
-      padding-right: $container-padding-desktop;
     }
 
     .marker {
-      color: $color-background;
+      color: var(--color-background);
     }
   }
 
   .logo {
-    @include spacing('medium');
     display: inline-block;
     height: 4rem;
+    margin-top: var(--flow-space-medium);
     max-width: 19.5rem;
     overflow: hidden;
     width: 100%;

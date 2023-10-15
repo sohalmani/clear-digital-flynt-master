@@ -8,7 +8,7 @@
 
     &-blurb {
       @include typography-blurb;
-      @include spacing('large');
+      margin-top: var(--flow-space-large);
     }
   }
 
@@ -23,7 +23,7 @@
 
   .feature {
     @include col(12);
-    @include spacing('large');
+    margin-top: var(--flow-space-large);
 
     @media (min-width: $breakpoint-tablet) {
       @include col(6);
