@@ -1,41 +1,5 @@
 flynt-component[name='TabsWithContent'] {
-  .expand-btn {
-    border: 0.4rem solid var(--color-accent);
-    border-radius: 50%;
-    display: inline-block;
-    height: 3.5rem;
-    position: relative;
-    width: 3.5rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      display: none;
-    }
-
-    &::before {
-      background-color: var(--color-accent);
-      border-radius: 1rem;
-      content: "";
-      height: 0.4rem;
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 1.3rem;
-    }
-
-    &::after {
-      background-color: var(--color-accent);
-      border-radius: 1rem;
-      content: "";
-      height: 1.3rem;
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease-in-out;
-      width: 0.4rem;
-    }
-  }
+  background-color: var(--color-background);
 
   .intro {
     h3 {
@@ -44,16 +8,14 @@ flynt-component[name='TabsWithContent'] {
     }
   }
 
-  .tabs-with-content-items {
-    position: relative;
-  }
+  .tabs-with-content {
+    &-items {
+      position: relative;
+    }
 
-  .tabs-with-content-content {
-    .tab-body {
-      margin-top: var(--flow-space-medium);
-
-      @media (max-width: #{$breakpoint-tablet - 1px}) {
-        display: none;
+    &-content {
+      .tab-body {
+        margin-top: var(--flow-space-medium)
       }
     }
   }
@@ -93,27 +55,16 @@ flynt-component[name='TabsWithContent'] {
 
     &-body {
       background-color: var(--color-background);
-      border-bottom: 0.1rem solid rgba(var(--color-border), 0.5);
+      border-bottom: 0.1rem solid var(--color-border);
+      display: none;
       height: 100%;
       padding-bottom: 5rem;
       position: relative;
       width: 100%;
+
       @media (min-width: $breakpoint-tablet) {
-        border-top: 0.1rem solid var(--color-border);
-        display: none;
+        border-top: 0.1rem solid var(--color-background);
         padding: 5rem 0;
-      }
-
-      &.collapse:not(.show) {
-        @media (max-width: #{$breakpoint-tablet - 1px}) {
-          display: none;
-        }
-      }
-
-      &.collapsing {
-        height: 0;
-        overflow: hidden;
-        transition: 0.35s height ease;
       }
     }
 
@@ -137,16 +88,15 @@ flynt-component[name='TabsWithContent'] {
       }
 
       h4 {
-        margin-top: var(--flow-space-small);
+        margin-top: var(--flow-space-small)
       }
 
       p {
-        margin-top: var(--flow-space-small);
+        margin-top: var(--flow-space-small)
       }
     }
 
     &-figure {
-      display: inline-block;
       height: 100%;
       margin-bottom: 0;
       max-height: 53.5rem;
@@ -160,12 +110,12 @@ flynt-component[name='TabsWithContent'] {
     }
 
     &-closeButton {
-      background: url("/icons/cross-black.svg") no-repeat center;
+      background: url('./../assets/icons/cross-black.svg') no-repeat center;
       background-size: contain;
       cursor: pointer;
       display: none;
       height: 3rem;
-      padding: 0 !important;
+      padding: 0;
       position: absolute;
       right: 0;
       top: 5rem;
@@ -176,11 +126,47 @@ flynt-component[name='TabsWithContent'] {
       }
     }
 
+    &-expandButton {
+      border: 0.4rem solid var(--color-accent);
+      border-radius: 50%;
+      display: inline-block;
+      height: 3.5rem;
+      position: relative;
+      width: 3.5rem;
+
+      @media (min-width: $breakpoint-tablet) {
+        display: none;
+      }
+
+      &::before {
+        background-color: var(--color-accent);
+        border-radius: 1rem;
+        content: '';
+        height: 0.4rem;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.3rem;
+      }
+
+      &::after {
+        background-color: var(--color-accent);
+        border-radius: 1rem;
+        content: '';
+        height: 1.3rem;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease-in-out;
+        width: 0.4rem;
+      }
+    }
+
     &-isOpen {
       .tab-head {
-        @media (max-width: #{$breakpoint-tablet - 1px}) {
-          border-bottom: 0;
-        }
+        border-bottom: 0;
       }
 
       .expand-btn {

@@ -1,4 +1,5 @@
-// import $ from 'jquery'
+// import delegate from 'delegate-event-listener'
+// import { buildRefs } from '@/assets/scripts/helpers.js'
 
 // class TabsWithContent extends window.HTMLDivElement {
 //   constructor (...args) {
@@ -79,5 +80,3 @@
 //     $(this).closest('[is="flynt-block-tabs-with-content"]').find('.tabs-with-content-items').css('display', 'block')
 //   }
 // }
-
-// window.customElements.define('flynt-block-tabs-with-content', TabsWithContent, { extends: 'div' })
