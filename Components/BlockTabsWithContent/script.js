@@ -1,5 +1,26 @@
 // import delegate from 'delegate-event-listener'
-// import { buildRefs } from '@/assets/scripts/helpers.js'
+import { buildRefs } from '@/assets/scripts/helpers.js'
+
+export default function (el) {
+  const refs = buildRefs(el)
+
+  refs.tabItems.querySelectorAll('.tab-head').forEach((element, i) => {
+    addIdOnElement(element, 'data-tab', 'tab-', i)
+  }); 
+
+  refs.tabItemsBody.querySelectorAll('.tab-body').forEach((element, i) => {
+    console.log(element, i)
+    addIdOnElement(element, 'data-tab-body', 'tab-', i)
+  }); 
+
+  function addIdOnElement (ele, customAttribute, attrTextValu, index) { 
+    ele.setAttribute(customAttribute, `${attrTextValu}${index + 1}`)
+  } 
+}
+
+// Add id on tabHead and tabBody
+// Add click on tabs
+// Add clcik on close button
 
 // class TabsWithContent extends window.HTMLDivElement {
 //   constructor (...args) {

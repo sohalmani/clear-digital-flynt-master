@@ -1,14 +1,14 @@
-<flynt-component name="TabsWithContent" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+<flynt-component name="BlockTabsWithContent" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
 	{# <script type="application/json">{{ jsonData|json_encode }}</script> #}
 	<div class="container">
 		<div class="intro">
 			<h3>Our services.</h3>
 		</div>
-		<div class="tabs-with-content-items">
+		<div class="tabs-with-content-items" data-ref="tabItems">
 			<div class="tabs-list">
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Brand strategy</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -32,14 +32,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Website design</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -63,14 +63,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Motion graphics</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -94,14 +94,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Creative services</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -125,14 +125,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Digital strategy</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -156,14 +156,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Web development</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -187,14 +187,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Website design</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -218,14 +218,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>UX/UI design</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -249,14 +249,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Digital marketing</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -280,14 +280,14 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="tabs-item">
 					<div class="tab">
-						<div class="tab-head" data-refs="tabTitle" data-cursor-icon="plus" data-cursor-expand>
+						<div class="tab-head" data-ref="tabTitle" data-cursor-icon="plus" data-cursor-expand>
 							<h4>Support subscriptions</h4>
 							<span class="tab-expandButton"></span>
 						</div>
@@ -311,15 +311,15 @@
 									</ul>
 									<a data-cursor-expand href="/" class="button">Learn more</a>
 								</div>
-								<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+								<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="tabs-with-content-content">
-			<div class="tab-body" data-refs="tabBody">
+		<div class="tabs-with-content-content" data-ref="tabItemsBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -339,10 +339,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -362,10 +362,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -385,10 +385,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -408,10 +408,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -431,10 +431,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -454,10 +454,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -477,10 +477,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -500,10 +500,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -523,10 +523,10 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
-			<div class="tab-body" data-refs="tabBody">
+			<div class="tab-body" data-ref="tabBody">
 				<div class="tab-bodyInner">
 					<div class="tab-image">
 						<picture class="tab-figure">
@@ -546,7 +546,7 @@
 						</ul>
 						<a data-cursor-expand href="/" class="button">Learn more</a>
 					</div>
-					<span class="tab-closeButton" data-refs="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
+					<span class="tab-closeButton" data-ref="closeButton" aria-label="close button" data-cursor-icon="minus" data-cursor-expand></span>
 				</div>
 			</div>
 		</div>
