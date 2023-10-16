@@ -66,6 +66,18 @@ flynt-component[name='BlockTabsWithContent'] {
         border-top: 0.1rem solid var(--color-background);
         padding: 5rem 0;
       }
+
+      &.collapse:not(.show) {
+        @media (max-width: $breakpoint-tablet - 1px) {
+          display: none;
+        }
+      }
+
+      &.collapsing {
+        height: 0;
+        overflow: hidden;
+        transition: 0.35s height ease;
+      }
     }
 
     &-bodyInner {
@@ -110,8 +122,6 @@ flynt-component[name='BlockTabsWithContent'] {
     }
 
     &-closeButton {
-      background: url('./../assets/icons/cross-black.svg') no-repeat center;
-      background-size: contain;
       cursor: pointer;
       display: none;
       height: 3rem;
