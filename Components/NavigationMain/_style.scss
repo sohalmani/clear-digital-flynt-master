@@ -1,14 +1,68 @@
 flynt-component[name='NavigationMain'] {
-  background-color: #fff;
   min-height: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 40;
-  --header-background-color: var(--color-white);
+  --header-background-color: transparent;
   --header-hamburger-color: var(--color-black);
   --header-top-link-color: var(--color-black);
   --header-color-transition: background-color 140ms ease-in-out;
+
+  >.container {
+    &::before {
+      background-color: var(--header-background-color);
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      transition: var(--header-color-transition);
+      width: max(calc(0.5 * (100%) - var(--container-spacing)), var(--container-spacing));
+      z-index: -1;
+
+      @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet-horizontal) {
+        left: 95.7%
+      }
+
+      @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-horizontal) {
+        left: 17.8rem;
+        width: 100%;
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        left: 12rem;
+        width: 100%;
+      }
+    }
+
+    &::after {
+      background-color: var(--header-background-color);
+      content: "";
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: var(--header-color-transition);
+      width: max(calc(0.5 * (100% - var(--content-width)) - var(--container-spacing)), var(--container-spacing));
+      z-index: -1;
+
+      @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet-horizontal) {
+        right: 95.7%
+      }
+
+      @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-horizontal) {
+        right: calc(100% - 6.8rem);
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        right: calc(100% - 1.6rem);
+      }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      position: static !important;
+    }
+  }
 
   .admin-bar & {
     inset-block-start: var(--wp-admin--admin-bar--height);
@@ -25,11 +79,22 @@ flynt-component[name='NavigationMain'] {
 
   }
 
-  .navigation-isScrolled,
-  &:hover {
+  .container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @import 'Partials/logo';
+  @import 'Partials/menu';
+  @import 'Partials/cta';
+
+  &[data-scroll='isScrolled'] {
     --header-background-color: var(--color-white);
     --header-hamburger-color: var(--color-black);
     --header-top-link-color: var(--color-black);
+
+    background: var(--header-background-color);
 
     .site-logo {
       &-transparent {
@@ -40,16 +105,9 @@ flynt-component[name='NavigationMain'] {
         display: none;
       }
     }
+
+    .link {
+      color: var(--header-top-link-color);
+    }
   }
-
-  .container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-  @import 'Partials/logo';
-  @import 'Partials/menu';
-  @import 'Partials/cta';
 }

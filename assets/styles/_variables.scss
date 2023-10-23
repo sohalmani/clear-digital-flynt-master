@@ -26,6 +26,11 @@
   --color-text-muted: hsl(0, 0%, 100%, 0.8);
 }
 
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+}
+
 $breakpoint-mobile-horizontal: 576px;
 $breakpoint-tablet: 768px;
 $breakpoint-tablet-horizontal: 992px;

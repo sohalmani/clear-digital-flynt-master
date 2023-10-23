@@ -20,9 +20,9 @@ export default function (el) {
 
   function handleHeaderScroll () {
     if (window.scrollY > 0) {
-      el.classList.add('navigation-isScrolled')
+      el.setAttribute('data-scroll', 'isScrolled')
     } else {
-      el.classList.remove('navigation-isScrolled')
+      el.removeAttribute('data-scroll')
     }
   }
 }
