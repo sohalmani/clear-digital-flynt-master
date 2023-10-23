@@ -1,11 +1,55 @@
-.logo {
-  block-size: 100%;
-  display: block;
-  flex-shrink: 0;
-  text-decoration: none;
+.site-logo {
+  height: 3.5rem;
+  max-width: 11.1rem;
+  position: relative;
+  width: 100%;
 
-  &-image {
-    block-size: 100%;
-    inline-size: auto;
+  &::before {
+    background-color: var(--header-background-color);
+    bottom: -100%;
+    content: "";
+    height: 94%;
+    position: absolute;
+    right: 0;
+    transition: var(--header-color-transition);
+    width: 100%;
+
+    @media (max-width: $breakpoint-tablet-horizontal) {
+      bottom: -86%;
+      height: 80%;
+    }
+  }
+
+  &::after {
+    background-color: var(--header-background-color);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: -100%;
+    transition: var(--header-color-transition);
+    width: 100%;
+  }
+
+  >a {
+    display: inline-block;
+    margin-left: -1px;
+    margin-right: -1px;
+    width: calc(100% + 2px);
+  }
+
+  &-white {
+    display: none;
+  }
+
+  &-transparent {
+    display: block;
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+    transition: opacity 140ms ease-in-out;
   }
 }

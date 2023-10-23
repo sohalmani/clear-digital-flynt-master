@@ -1,3 +1,211 @@
+// flynt-component[name='NavigationFooter'] {
+//   background-color: var(--color-background);
+
+//   // .footer {
+//   //   padding-top: 50px;
+
+//   //   @media (min-width: $breakpoint-tablet) {
+//   //     padding-top: 100px;
+//   //   }
+
+//   //   @media (min-width: $breakpoint-tablet-horizontal) {
+//   //     padding-top: 150px;
+//   //   }
+
+//   //   ul {
+//   //     list-style: none;
+//   //     margin-bottom: 0;
+//   //     padding-left: 0;
+//   //   }
+
+//   //   .report-card {
+//   //     position: relative;
+
+//   //     &__img {
+//   //       height: 253px;
+//   //       max-width: 210px;
+//   //       width: 100%;
+
+//   //       img {
+//   //         height: 100%;
+//   //         object-fit: cover;
+//   //         width: 100%;
+//   //       }
+//   //     }
+//   //   }
+
+//   //   .contact-links {
+//   //     &__item {
+//   //       cursor: pointer;
+//   //       padding-left: 40px;
+//   //       position: relative;
+//   //       transition: color 0.3s ease-in-out;
+
+//   //       &:not(:first-child) {
+//   //         margin-top: 25px;
+//   //       }
+
+//   //       &::before {
+//   //         content: '';
+//   //         height: 24px;
+//   //         left: 0;
+//   //         position: absolute;
+//   //         width: 24px;
+//   //       }
+
+//   //       &:hover {
+//   //         color: var(--color-accent);
+//   //       }
+
+//   //       &--location {
+//   //         &::before {
+//   //           background: url('./../assets/icons/map-pin-pink.svg') no-repeat center;
+//   //           background-size: contain;
+//   //         }
+//   //       }
+
+//   //       &--phone {
+//   //         &::before {
+//   //           background: url('./../assets/icons/smartphone-pink.svg') no-repeat center;
+//   //           background-size: contain;
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+
+//   //   .social {
+//   //     &-icons {
+//   //       column-gap: 20px;
+//   //     }
+
+//   //     &__icon {
+//   //       border-radius: 50%;
+//   //       display: inline-block;
+//   //       height: 25px;
+//   //       width: 25px;
+
+//   //       svg {
+//   //         path {
+//   //           fill: var(--color-border-secondary);
+//   //           transition: fill 0.3s ease-in-out;
+//   //         }
+//   //       }
+
+//   //       &:hover {
+//   //         svg {
+//   //           path {
+//   //             fill: var(--color-accent);
+//   //           }
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+
+//   //   &__links {
+//   //     li {
+//   //       &:not(:first-child) {
+//   //         margin-top: 30px;
+//   //       }
+//   //     }
+//   //   }
+
+//   //   &__link {
+//   //     color: var(--color-background);
+//   //     transition: color 0.3s ease-in-out;
+
+//   //     &:hover {
+//   //       color: var(--color-accent);
+//   //     }
+//   //   }
+
+//   //   &__external {
+//   //     &--logo {
+//   //       height: 75px;
+//   //       max-width: 115px;
+//   //       position: relative;
+
+//   //       @media (max-width: $breakpoint-tablet) {
+//   //         height: 65px;
+//   //         max-width: 100px;
+//   //       }
+
+//   //       img {
+//   //         height: 100%;
+//   //         object-fit: contain;
+//   //       }
+//   //     }
+//   //   }
+
+//   //   &__icon {
+//   //     height: 38px;
+//   //     position: relative;
+//   //     width: 40px;
+
+//   //     img {
+//   //       height: 100%;
+//   //       object-fit: contain;
+//   //     }
+//   //   }
+
+//   //   &__main {
+//   //     color: var(--color-background);
+//   //     padding-bottom: 94px;
+
+//   //     @media (min-width: $breakpoint-tablet) {
+//   //       padding-bottom: 144px;
+//   //     }
+
+//   //     @media (min-width: $breakpoint-tablet-horizontal) {
+//   //       padding-bottom: 256px;
+//   //     }
+//   //   }
+
+//   //   &__primary {
+//   //     color: var(--color-background);
+
+//   //     .content-wrapper {
+//   //       @media (min-width: $breakpoint-tablet-horizontal) {
+//   //         max-width: 73%;
+//   //       }
+//   //     }
+//   //   }
+
+//   //   &__primary--wrapper {
+//   //     border-top: 1px solid var(--color-background);
+//   //     padding: 50px 0;
+//   //   }
+
+//   //   &__secondary {
+//   //     padding: 30px 0;
+
+//   //     ul {
+//   //       column-gap: 15px;
+
+//   //       @media (min-width: $breakpoint-tablet-horizontal) {
+//   //         column-gap: 20px;
+//   //       }
+
+//   //       li {
+//   //         &:not(:first-child) {
+//   //           @media (max-width: $breakpoint-tablet) {
+//   //             margin-top: 16px;
+//   //           }
+//   //         }
+
+//   //         a {
+//   //           color: var(--color-border-secondary);
+//   //           transition: color 0.3s ease-in-out;
+
+//   //           &:hover {
+//   //             color: var(--color-accent);
+//   //           }
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+//   // }
+// }
+
 flynt-component[name='NavigationFooter'] {
   font-size: var(--font-size-body-small);
 

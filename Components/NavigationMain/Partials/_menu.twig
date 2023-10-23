@@ -1,7 +1,25 @@
-<ul class="menu">
+{# <ul class="menu">
   {% for item in items %}
-    <li class="item {{- item.current ? ' current-menu-item' }}">
-      <a class="link" href="{{ item.link|e('esc_url') }}" {{- item.is_external or item.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' -}}>{{ item.title }}</a>
-    </li>
+  <li class="item {{- item.current ? ' current-menu-item' }}">
+    <a class="link" href="{{ item.link|e('esc_url') }}" {{- item.is_external or item.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' -}}>{{ item.title }}</a>
+  </li>
   {% endfor %}
+</ul> #}
+
+<ul class="menu">
+  <li class="menu-item">
+    <a data-cursor-expand href="/work" class="link">Work</a>
+  </li>
+  <li class="menu-item">
+    <a data-cursor-expand href="/approach" class="link">Approach</a>
+  </li>
+  <li class="menu-item">
+    <a data-cursor-expand href="/services" class="link">Services</a>
+  </li>
+  <li class="menu-item">
+    <a data-cursor-expand href="/insights" class="link">Insights</a>
+  </li>
+  <li class="menu-item">
+    <a data-cursor-expand href="/about" class="link">About</a>
+  </li>
 </ul>

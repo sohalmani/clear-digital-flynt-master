@@ -63,8 +63,8 @@ flynt-component[name='BlockTabsWithContent'] {
 
       @media (min-width: $breakpoint-tablet) {
         border-top: 0.1rem solid var(--color-background);
-        padding: 5rem 0;
         display: none;
+        padding: 5rem 0;
       }
 
       &.collapse:not(.show) {
