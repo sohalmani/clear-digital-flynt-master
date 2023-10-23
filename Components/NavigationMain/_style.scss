@@ -17,7 +17,7 @@ flynt-component[name='NavigationMain'] {
       left: 0;
       position: absolute;
       transition: var(--header-color-transition);
-      width: max(calc(0.5 * (100%) - var(--container-spacing)), var(--container-spacing));
+      width: max(calc(0.5 * (100% - var(--content-max-width-full)) - var(--container-spacing)), var(--container-spacing));
       z-index: -1;
 
       @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet-horizontal) {
@@ -43,7 +43,7 @@ flynt-component[name='NavigationMain'] {
       right: 0;
       top: 0;
       transition: var(--header-color-transition);
-      width: max(calc(0.5 * (100% - var(--content-width)) - var(--container-spacing)), var(--container-spacing));
+      width: max(calc(0.5 * (100% - var(--content-max-width-full)) - var(--container-spacing)), var(--container-spacing));
       z-index: -1;
 
       @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet-horizontal) {
@@ -74,9 +74,7 @@ flynt-component[name='NavigationMain'] {
     display: flex;
     justify-content: flex-end;
     transition: var(--header-color-transition);
-    width: 100%;
-
-
+    width: calc(100% - 11.1rem);
   }
 
   .container {
@@ -93,8 +91,6 @@ flynt-component[name='NavigationMain'] {
     --header-background-color: var(--color-white);
     --header-hamburger-color: var(--color-black);
     --header-top-link-color: var(--color-black);
-
-    background: var(--header-background-color);
 
     .site-logo {
       &-transparent {
