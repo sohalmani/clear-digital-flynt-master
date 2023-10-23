@@ -10,6 +10,10 @@ flynt-component[name='NavigationMain'] {
   --header-top-link-color: var(--color-black);
   --header-color-transition: background-color 140ms ease-in-out;
 
+  .admin-bar & {
+    inset-block-start: var(--wp-admin--admin-bar--height);
+  }
+
   .navigation {
     align-items: center;
     background-color: var(--header-background-color);
@@ -18,8 +22,23 @@ flynt-component[name='NavigationMain'] {
     transition: var(--header-color-transition);
     width: 100%;
 
-    .admin-bar & {
-      inset-block-start: var(--wp-admin--admin-bar--height);
+
+  }
+
+  .navigation-isScrolled,
+  &:hover {
+    --header-background-color: var(--color-white);
+    --header-hamburger-color: var(--color-black);
+    --header-top-link-color: var(--color-black);
+
+    .site-logo {
+      &-transparent {
+        display: block;
+      }
+
+      &-white {
+        display: none;
+      }
     }
   }
 
