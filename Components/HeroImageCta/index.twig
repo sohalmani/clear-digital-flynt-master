@@ -1,18 +1,34 @@
-<flynt-component name="HeroImageCta" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} data-overlay="grid">
-  <video class="video" width="640" height="640" aria-hidden="true" autoplay muted loop poster="{{ theme.link }}/Components/HeroImageCta/Assets/poster-image.webp">
-    <source src="{{ theme.link }}/Components/HeroImageCta/Assets/video-dummy.mp4" type="video/mp4">
-    <source src="{{ theme.link }}/Components/HeroImageCta/Assets/video-dummy.webm" type="video/mp4">
-  </video>
+<flynt-component name="HeroImageCta" class="componentSpacing {{- options.componentClasses ? ' ' ~ options.componentClasses -}}" {{ options.componentId ? 'id="' ~ options.componentId ~ '"' }} {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="backgroundWrapper">
+    <video class="video" width="640" height="640" aria-hidden="true" autoplay muted loop poster="{{ backgroundImage.src|resizeDynamic(768)|towebp }}">
+      <source src="{{ backgroundVideo }}" type="video/mp4">
+    </video>
+    {% if backgroundOverlays %}
+      {% for overlay in backgroundOverlays %}
+        <div class="overlay-{{ overlay }}"></div>
+      {% endfor %}
+    {% endif %}
+  </div>
 	<div class="container">
     <div class="intro">
-      <p class="intro-eyebrow">Hello! We are Clear Digital.</p>
-      <h1 class="h2 intro-headline">We build websites and
-        <span class="marker marker--underline">digital</span>
-        brand experiences for modern B2B organizations.</h1>
-      <a href="/" class="intro-cta button button--text">Our approach</a>
+      <p class="intro-eyebrow">{{ eyebrow }}</p>
+      {% if headline.tag == 'h1' %}
+        <h1 class="{{ headline.type }} intro-headline">{{ headline.text }}</h1>
+      {% else %}
+        <h2 class="{{ headline.type }} intro-headline">{{ headline.text }}</h2>
+      {% endif %}
+      {% if ctas %}
+        <div class="groupContainer">
+          {% for cta in ctas %}
+            <a href="{{ cta.button.link.url }}" class="intro-cta button button--{{ cta.button.variant }}" target="{{ cta.button.link.target }}">{{ cta.button.link.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
 	</div>
-  <div class="container container--playButton">
-    <a href="https://youtu.be/UtoQ1TsQLpE" class="playButton video--playInModal" target="_blank" aria-label="Play video">Play video</a>
-  </div>
+  {% if lightboxVideo %}
+    <div class="container container--playButton">
+      <a href="{{ lightboxVideo }}" class="playButton video--playInModal" target="_blank" aria-label="Play video">Play video</a>
+    </div>
+  {% endif %}
 </flynt-component>
