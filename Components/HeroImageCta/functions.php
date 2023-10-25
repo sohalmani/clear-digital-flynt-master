@@ -150,8 +150,6 @@ function getACFLayout()
                                     'primary' => 'Primary',
                                     'outlined' => 'Outlined',
                                     'text' => 'Text',
-                                    'left' => __('Left', 'flynt'),
-                                    'center' => __('Center', 'flynt'),
                                 ]
                             ],
                         ],
@@ -177,7 +175,7 @@ function getACFLayout()
                         'type' => 'text',
                     ],
                     [
-                        'label' => __('Classes', 'flynt'),
+                        'label' => __('Class(es)', 'flynt'),
                         'name' => 'componentClasses',
                         'type' => 'text',
                     ],

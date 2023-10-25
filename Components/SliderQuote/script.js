@@ -9,11 +9,15 @@ import 'swiper/css/pagination'
 
 export default function (el) {
   const refs = buildRefs(el)
-  const swiper = initSlider(refs)
-  return () => swiper.destroy()
+  const testimonialSwiper = initTestimonialSlider(refs)
+  const logoSwiper = initLogoSlider(refs)
+  return () => {
+    testimonialSwiper.destroy()
+    logoSwiper.destroy()
+  }
 }
 
-function initSlider (refs) {
+function initTestimonialSlider (refs) {
   const config = {
     modules: [A11y, Autoplay, Navigation, Pagination],
     roundLengths: true,
@@ -30,5 +34,36 @@ function initSlider (refs) {
     spaceBetween: 30
   }
 
-  return new Swiper(refs.slider, config)
+  return new Swiper(refs.testimonialSlider, config)
+}
+
+function initLogoSlider (refs) {
+  const config = {
+    modules: [Autoplay],
+    autoplay: {
+      delay: 0
+    },
+    loop: true,
+    noSwiping: true,
+    noSwipingClass: 'swiper-slide',
+    slidesPerView: 2,
+    spaceBetween: 20,
+    speed: 4000,
+    breakpoints: {
+      576: {
+        slidesPerView: 3
+      },
+      768: {
+        slidesPerView: 4
+      },
+      992: {
+        slidesPerView: 5
+      },
+      1200: {
+        slidesPerView: 6
+      }
+    }
+  }
+
+  return new Swiper(refs.logosSlider, config)
 }

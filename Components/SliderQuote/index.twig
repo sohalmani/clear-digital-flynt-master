@@ -1,89 +1,199 @@
 <flynt-component name="SliderQuote" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
 	<div class="container">
-		<div class="intro">
-			<h3>Our clients.</h3>
-		</div>
-		<div class="logos">
-			<ul class="logos-list">
-				<li class="logos-item">
-					<div class="logo">
-						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cisco.svg" width="210" height="84" alt="Logo">
-					</div>
-				</li>
-				<li class="logos-item">
-					<div class="logo">
-						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-vmware.svg" width="210" height="84" alt="Logo">
-					</div>
-				</li>
-				<li class="logos-item">
-					<div class="logo">
-						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-mcafee.svg" width="210" height="84" alt="Logo">
-					</div>
-				</li>
-				<li class="logos-item">
-					<div class="logo">
-						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-tenable.svg" width="210" height="84" alt="Logo">
-					</div>
-				</li>
-				<li class="logos-item">
-					<div class="logo">
-						<img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-stanford.svg" width="210" height="84" alt="Logo">
-					</div>
-				</li>
-			</ul>
-		</div>
-    <div class="testimonials-slider swiper" data-ref="slider">
-      <div class="testimonials swiper-wrapper">
-        <div class="testimonial-outer swiper-slide">
-          <div class="testimonial">
-            <div class="testimonial-image">
-              <figure class="testimonial-figure">
-                <img class="testimonial-figureImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/pattern-hexagon-green.webp" width="570" height="491" alt="Quote Image">
-              </figure>
-            </div>
-            <div class="testimonial-content">
-              <span class="art art--arrowWhite"></span>
-              <span class="art art--quote"></span>
-              <blockquote class="testimonial-text">
-                <h4>Aenean aliquet malesuada quam et placerat. Suspendisse pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus lorem ipsum.</h4>
-              </blockquote>
-              <p class="testimonial-author">Jane Doe, <span>CEO</span></p>
-              <div class="testimonial-author-logo">
-                <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
-              </div>
-              <div class="groupContainer">
-                <a href="/" class="testimonial-link button button--text">View case study</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-outer swiper-slide">
-          <div class="testimonial">
-            <div class="testimonial-image">
-              <figure class="testimonial-figure">
-                <img class="testimonial-figureImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/pattern-hexagon-green.webp" width="570" height="491" alt="Quote Image">
-              </figure>
-            </div>
-            <div class="testimonial-content">
-              <span class="art art--arrowWhite"></span>
-              <span class="art art--quote"></span>
-              <blockquote class="testimonial-text">
-                <h4>Aenean aliquet malesuada quam et placerat. Suspendisse pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus lorem ipsum.</h4>
-              </blockquote>
-              <p class="testimonial-author">Jane Doe, <span>CEO</span></p>
-              <div class="testimonial-author-logo">
-                <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
-              </div>
-              <div class="groupContainer">
-                <a href="/" class="testimonial-link button button--text">View case study</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    {% if headline %}
+      <div class="intro">
+        <h3>{{ headline }}</h3>
       </div>
-      <div class="testimonial-sliderProgressbar swiper-pagination" data-ref="pagination"></div>
-      <div class="testimonial-sliderArrow testimonial-sliderArrow--prev swiper-button-prev" data-ref="prev"></div>
-      <div class="testimonial-sliderArrow testimonial-sliderArrow--next swiper-button-next" data-ref="next"></div>
-    </div>
+    {% endif %}
+    {% if testimonials %}
+      <div class="testimonials-slider swiper" data-ref="testimonialSlider">
+        <div class="testimonials swiper-wrapper">
+          {% for testimonial in testimonials %}
+            <div class="testimonial-outer swiper-slide">
+              <div class="testimonial">
+                {% if testimonial.style == 'image' and testimonial.image %}
+                  <div class="testimonial-image">
+                    <figure class="testimonial-figure">
+                      <img class="testimonial-figureImage lazyload" data-src="{{ testimonial.image.src }}" width="{{ testimonial.image.width }}" height="{{ testimonial.image.height }}" alt="{{ testimonial.image.alt }}">
+                    </figure>
+                  </div>
+                {% endif %}
+                {% if testimonial.style == 'stats' and testimonial.stats.counter.number %}
+                  <div class="testimonial-statistics">
+                    <div class="testimonial-counter">
+                      <span class="testimonial-counterPrefix">{{ testimonial.stats.counter.prefix }}</span>
+                      <span class="testimonial-counterNumber h1">{{ testimonial.stats.counter.number }}</span>
+                      <span class="testimonial-counterSuffix h1">{{ testimonial.stats.counter.suffix }}</span>
+                    </div>
+                    {% if testimonial.stats.subtitle %}
+                      <p class="h6">{{ testimonial.stats.subtitle }}</p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                {% if testimonial.quote %}
+                  <div class="testimonial-content">
+                    <span class="art art--arrowWhite"></span>
+                    <span class="art art--quote"></span>
+                    <blockquote class="testimonial-text">
+                      <h3>{{ testimonial.quote }}</h3>
+                    </blockquote>
+                    {% if testimonial.author.name %}
+                      <p class="testimonial-author"><strong>{{ testimonial.author.name }}</strong>{{ testimonial.author.designation ? ', <span>' ~ testimonial.author.designation ~ '</span>' }}</p>
+                    {% endif %}
+                    {% if testimonial.author.companyLogo %}
+                      <div class="testimonial-author-logo">
+                        <img class="quote-author-logoImage lazyload" data-src="{{ testimonial.author.companyLogo.src }}" width="{{ testimonial.author.companyLogo.width }}" height="{{ testimonial.author.companyLogo.height }}" alt="{{ testimonial.author.companyLogo.alt }}">
+                      </div>
+                    {% endif %}
+                    {% if testimonial.ctas %}
+                      <div class="groupContainer">
+                        {% for cta in testimonial.ctas %}
+                          <a href="{{ cta.link.url }}" class="testimonial-link button button--text" target="{{ cta.link.target }}">{{ cta.link.title }}</a>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+          <div class="testimonial-outer swiper-slide">
+            <div class="testimonial">
+              <div class="testimonial-image">
+                <figure class="testimonial-figure">
+                  <img class="testimonial-figureImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/pattern-hexagon-green.webp" width="570" height="491" alt="Quote Image">
+                </figure>
+              </div>
+              <div class="testimonial-content">
+                <span class="art art--arrowWhite"></span>
+                <span class="art art--quote"></span>
+                <blockquote class="testimonial-text">
+                  <h3>Aenean aliquet malesuada quam et placerat. Suspendiss pellentes. Interdum et malesuada fames ac ante ipsum primis in.</h3>
+                </blockquote>
+                <p class="testimonial-author"><strong>Jane Doe</strong>, <span>CEO</span></p>
+                <div class="testimonial-author-logo">
+                  <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
+                </div>
+                <div class="groupContainer">
+                  <a href="/" class="testimonial-link button button--text">View case study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-outer swiper-slide">
+            <div class="testimonial">
+              <div class="testimonial-statistics">
+                <div class="testimonial-counter">
+                  <span class="testimonial-counterPrefix"></span>
+                  <span class="testimonial-counterNumber h1">113</span>
+                  <span class="testimonial-counterSuffix h1">%</span>
+                </div>
+                <p class="h6">Aenean aliquet malesuada quam et placerat.</p>
+              </div>
+              <div class="testimonial-content">
+                <span class="art art--arrowWhite"></span>
+                <span class="art art--quote"></span>
+                <blockquote class="testimonial-text">
+                  <h3>Aenean aliquet malesuada quam et placerat. Suspendiss pellentes. Interdum et malesuada fames ac ante ipsum primis in.</h3>
+                </blockquote>
+                <p class="testimonial-author"><strong>Jane Doe</strong>, <span>CEO</span></p>
+                <div class="testimonial-author-logo">
+                  <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
+                </div>
+                <div class="groupContainer">
+                  <a href="/" class="testimonial-link button button--text">View case study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-outer swiper-slide">
+            <div class="testimonial">
+              <div class="testimonial-content">
+                <span class="art art--arrowWhite"></span>
+                <span class="art art--quote"></span>
+                <blockquote class="testimonial-text">
+                  <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut fermentum nisl. Morbi a sem vitae eros efficitur ultrices ut vitae purus. Sed risus sapien, efficitur et pharetra sed, tempus ac risus. Phasellus vitae nunc convallis, mattis magna sed, vehicula enim.</h3>
+                </blockquote>
+                <p class="testimonial-author"><strong>Jane Doe</strong>, <span>CEO</span></p>
+                <div class="testimonial-author-logo">
+                  <img class="quote-author-logoImage lazyload" data-src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cohesity.webp" width="157" height="22" alt="Author Company">
+                </div>
+                <div class="groupContainer">
+                  <a href="/" class="testimonial-link button button--text">View case study</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-sliderProgressbar swiper-pagination" data-ref="pagination"></div>
+        <div class="testimonial-sliderArrow testimonial-sliderArrow--prev swiper-button-prev" data-ref="prev"></div>
+        <div class="testimonial-sliderArrow testimonial-sliderArrow--next swiper-button-next" data-ref="next"></div>
+      </div>
+    {% endif %}
   </div>
+  {% if logos %}
+    <div class="logos swiper" data-ref="logosSlider">
+      <ul class="logos-list groupContainer swiper-wrapper">
+        {% for logo in logos %}
+          <li class="logos-item swiper-slide">
+            {% if logo.image %}
+              <div class="logo">
+                <img class="logo-image" src="{{ logo.image }}" width="{{ logo.image.width }}" height="{{ logo.image.height }}" alt="{{ logo.image.alt }}">
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+        {# <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cisco.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-mcafee.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-stanford.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-tenable.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-vmware.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-cisco.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-mcafee.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-stanford.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-tenable.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li>
+        <li class="logos-item swiper-slide">
+          <div class="logo">
+            <img class="logo-image" src="{{ theme.link }}/Components/SliderQuote/Assets/logo-vmware.svg" width="210" height="84" alt="Logo">
+          </div>
+        </li> #}
+      </ul>
+    </div>
+  {% endif %}
 </flynt-component>

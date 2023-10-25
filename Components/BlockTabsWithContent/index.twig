@@ -1,9 +1,11 @@
-<flynt-component name="BlockTabsWithContent" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+<flynt-component name="BlockTabsWithContent" load:on="visible" class="componentSpacing {{- options.componentClasses ? ' ' ~ options.componentClasses -}}" {{ options.componentId ? 'id="' ~ options.componentId ~ '"' }} {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
 	{# <script type="application/json">{{ jsonData|json_encode }}</script> #}
 	<div class="container">
-		<div class="intro">
-			<h3>Our services.</h3>
-		</div>
+    {% if headline %}
+      <div class="intro">
+        <h3>{{ headline }}</h3>
+      </div>
+    {% endif %}
 		<div class="tabs-with-content-items" data-ref="tabItems">
 			<div class="tabs-list">
 				<div class="tabs-item">

@@ -2,13 +2,23 @@
 	{# <script type="application/json">{{ jsonData|json_encode }}</script> #}
 	<div class="container">
 		<div class="content">
-			<div class="intro">
-				<h3>Clear Digital news, thoughts, and
-					<span class="marker marker--underline">insights</span>.
-				</h3>
-				<p>Torem ipsum dolor sit amet, consectetur adipiscing at elit. Nunc vulputate libero dolore aliqua et.</p>
-				<a href="#" class="button">View all Insights</a>
-			</div>
+      {% if headline %}
+        <div class="intro">
+          <h3>{{ headline }}</h3>
+          {% if blurb %}
+            {{ blurb }}
+          {% endif %}
+          {% if ctas %}
+            <div class="groupContainer">
+              {% for cta in ctas %}
+                {% if cta.link.title %}
+                  <a href="{{ cta.link.url }}" class="button" target="{{ cta.link.target }}">{{ cta.link.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
 			<div class="posts-outer slider swiper" data-ref="slider">
 				<div class="posts swiper-wrapper">
 					<div class="post-outer swiper-slide">
@@ -72,33 +82,41 @@
 			</div>
 		</div>
 		<div class="content content--logos row align-items-center mt-15 mt-lg-36">
-			<div class="logos-heading">
-				<h3 class="star"><span class="art art--star">Featured in:</span></h3>
-			</div>
+      {% if logos.title %}
+        <div class="logos-heading">
+          <h3>{{ logos.title }}</h3>
+        </div>
+      {% endif %}
+      {% if logos.list %}
 			<div class="logos">
 				<ul class="logos-list">
-					<li class="logos-item">
-						<div class="logo">
-							<img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-forbes.svg" width="153" height="47" alt="Logo">
-						</div>
-					</li>
-					<li class="logos-item">
-						<div class="logo">
-							<img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-medium.svg" width="153" height="47" alt="Logo">
-						</div>
-					</li>
-					<li class="logos-item">
-						<div class="logo">
-							<img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-logoipsum.svg" width="153" height="47" alt="Logo">
-						</div>
-					</li>
-					<li class="logos-item">
-						<div class="logo">
-							<img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-hyperbest.svg" width="153" height="47" alt="Logo">
-						</div>
-					</li>
+          {% for logo in logos.list %}
+            <li class="logos-item">
+              <div class="logo">
+                {% if logo.image %}
+                  <img class="logo-image lazyload" src="{{ logo.image.src }}" width="{{ logo.image.width }}" height="{{ logo.image.height }}" alt="{{ logo.image.alt }}">
+                {% endif %}
+              </div>
+            </li>
+            {# <li class="logos-item">
+              <div class="logo">
+                <img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-medium.svg" width="153" height="47" alt="Logo">
+              </div>
+            </li>
+            <li class="logos-item">
+              <div class="logo">
+                <img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-logoipsum.svg" width="153" height="47" alt="Logo">
+              </div>
+            </li>
+            <li class="logos-item">
+              <div class="logo">
+                <img class="logo-image lazyload" src="{{ theme.link }}/Components/SliderPosts/Assets/logo-hyperbest.svg" width="153" height="47" alt="Logo">
+              </div>
+            </li> #}
+          {% endfor %}
 				</ul>
 			</div>
+      {% endif %}
 		</div>
 	</div>
 </flynt-component>

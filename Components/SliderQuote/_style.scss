@@ -5,42 +5,6 @@ flynt-component[name='SliderQuote'] {
     margin-bottom: var(--flow-space-medium);
   }
 
-  .logos {
-    margin-bottom: var(--flow-space-medium);
-
-    &-list {
-      @include row;
-      @include row-cols(2);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      @media (min-width: $breakpoint-tablet) {
-        @include row-cols(3);
-      }
-
-      @media (min-width: $breakpoint-tablet) {
-        @include row-cols(4);
-      }
-
-      @media (min-width: $breakpoint-tablet) {
-        @include row-cols(5);
-      }
-    }
-  }
-
-  .logo {
-    height: 8.4rem;
-    margin: auto;
-    max-width: 19.3rem;
-    text-align: center;
-
-    &-image {
-      height: 100%;
-      object-fit: contain;
-    }
-  }
-
   .testimonials {
     display: flex;
     flex-wrap: nowrap;
@@ -57,24 +21,42 @@ flynt-component[name='SliderQuote'] {
       @include col(12);
     }
 
-    &-image {
+    &-image,
+    &-statistics {
       @include col(12);
       height: 100%;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
-        @include col(5);
+        @include col(6);
       }
     }
 
-    &-figure {
+    &-figure,
+    &-counter {
       height: 100%;
       margin: 0;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        margin-right: calc(((var(--content-max-width-full) - (var(--container-spacing) * 2)) / 12));
+      }
     }
 
     &-figureImage {
       height: 100%;
       object-fit: cover;
       overflow: hidden;
+    }
+
+    &-statistics {
+      p {
+        font-weight: normal;
+        margin-top: var(--flow-space);
+      }
+    }
+
+    &-counterNumber,
+    &-counterSuffix {
+      color: var(--color-accent);
     }
 
     &-content {
@@ -86,7 +68,6 @@ flynt-component[name='SliderQuote'] {
       position: relative;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
-        @include offset(1);
         margin-top: 0;
       }
     }
@@ -94,19 +75,19 @@ flynt-component[name='SliderQuote'] {
     &-text {
       border: 0;
       font-style: normal;
-      margin-bottom: 0;
-      margin-left: 0;
-      margin-top: var(--flow-space-medium);
+      margin: 0;
+      max-inline-size: 1290px;
       padding: 0;
     }
 
     &-author {
-      margin-top: 2rem;
+      color: var(--color-accent);
+      margin-top: var(--flow-space-medium);
     }
 
     &-author-logo {
       height: 2.2rem;
-      margin-top: var(--flow-space-medium);
+      margin-top: var(--flow-space);
       max-width: 15.7rem;
 
       img {
@@ -116,7 +97,11 @@ flynt-component[name='SliderQuote'] {
     }
 
     &-link {
-      margin-top: var(--flow-space-medium);
+      margin-top: var(--flow-space-small);
+    }
+
+    &-sliderProgressbar {
+      margin-top: var(--flow-space-large);
     }
 
     &-sliderArrow {
@@ -124,6 +109,74 @@ flynt-component[name='SliderQuote'] {
       &--next {
         background-color: var(--color-background);
       }
+    }
+  }
+
+  .logos {
+    margin-top: var(--flow-space-large);
+    position: relative;
+    --gradient-fade-size: 25%;
+
+    &::before {
+      background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+      bottom: 0;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: var(--gradient-fade-size);
+      z-index: 2;
+    }
+
+    &::after {
+      background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+      bottom: 0;
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: var(--gradient-fade-size);
+      z-index: 2;
+    }
+
+    &-list {
+      @include row-cols(3);
+      --flow-space: var(--flow-space-medium);
+      flex-wrap: nowrap;
+      inline-size: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (min-width: $breakpoint-tablet) {
+        @include row-cols(6);
+      }
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        @include row-cols(7);
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        @include row-cols(8);
+      }
+
+      .swiper-wrapper {
+        transition-timing-function: linear;
+      }
+    }
+  }
+
+  .logo {
+    height: 8.4rem;
+    margin: auto;
+    max-width: 19.3rem;
+    text-align: center;
+
+    &-image {
+      height: 100%;
+      object-fit: contain;
     }
   }
 }

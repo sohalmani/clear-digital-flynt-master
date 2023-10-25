@@ -1,7 +1,40 @@
-<flynt-component name="BlockImageTwoCol" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+<flynt-component name="BlockImageTwoCol" load:on="visible" class="componentSpacing {{- options.componentClasses ? ' ' ~ options.componentClasses -}}" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
 	<div data-ref="slider" class="columns-outer swiper">
 		<div class="columns swiper-wrapper">
-			<div class="column swiper-slide">
+      {% for column in columns %}
+        <div class="column swiper-slide">
+          {% if column.backgroundVideo %}
+            <video class="video" width="640" height="640" aria-hidden="true" autoplay muted loop poster="{{ column.backgroundImage ? column.backgroundImage }}">
+              <source src="{{ column.backgroundVideo }}" type="video/mp4">
+            </video>
+          {% endif %}
+          {% if not column.backgroundVideo and column.backgroundImage %}
+            <figure class="figure">
+              <img class="figure-image lazyload" data-src="{{ column.backgroundImage.src }}" width="{{ column.backgroundImage.width }}" height="{{ column.backgroundImage.height }}" alt="{{ column.backgroundImage.alt }}">
+            </figure>
+          {% endif %}
+          {% if column.headline %}
+            <div class="content">
+              {% if column.logo %}
+                <div class="logo">
+                  <img class="logo-image lazyload" data-src="{{ column.logo.src }}" width="{{ column.logo.width }}" height="{{ column.logo.height }}" alt="{{ column.logo.alt ? column.logo.alt : 'Logo' }}">
+                </div>
+              {% endif %}
+              <h2 class="h3">{{ column.headline }}</h2>
+              {% if column.ctas %}
+                <div class="groupContainer">
+                  {% for cta in column.ctas %}
+                    {% if cta.link.title %}
+                      <a href="{{ cta.link.url }}" class="button button--text" target="{{ cta.link.target }}">{{ cta.link.title }}</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+			{# <div class="column swiper-slide">
 				<figure class="figure">
 					<img class="figure-image lazyload" data-src="{{ theme.link }}/Components/BlockImageTwoCol/Assets/man-holding-phone.webp" width="800" height="1090" alt="Background Image">
 				</figure>
@@ -44,7 +77,7 @@
 						increase on click-through rates.</h2>
 					<a href="/" class="button button--text">View case study</a>
 				</div>
-			</div>
+			</div> #}
 		</div>
 		<div data-ref="prev" class="swiper-button-prev"></div>
 		<div data-ref="next" class="swiper-button-next"></div>

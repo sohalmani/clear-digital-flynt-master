@@ -16,18 +16,24 @@ function getACFLayout()
         'label' => __('Block: Tabs With Content', 'flynt'),
         'sub_fields' => [
             [
-                'label' => __('General', 'flynt'),
-                'name' => 'generalTab',
+                'label' => __('Content', 'flynt'),
+                'name' => 'contentTab',
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0,
+            ],
+            [
+                'label' => __('Headline', 'flynt'),
+                'instructions' => __('Enter a headline.', 'flynt'),
+                'name' => 'headline',
+                'type' => 'text',
             ],
             [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',
                 'placement' => 'top',
-                'endpoint' => 0,
+                'endpoint' => 0
             ],
             [
                 'label' => '',
@@ -35,9 +41,19 @@ function getACFLayout()
                 'type' => 'group',
                 'layout' => 'row',
                 'sub_fields' => [
+                    [
+                        'label' => __('ID', 'flynt'),
+                        'name' => 'componentId',
+                        'type' => 'text',
+                    ],
+                    [
+                        'label' => __('Class(es)', 'flynt'),
+                        'name' => 'componentClasses',
+                        'type' => 'text',
+                    ],
                     FieldVariables\getTheme()
-                ],
-            ],
+                ]
+            ]
         ]
     ];
 }
