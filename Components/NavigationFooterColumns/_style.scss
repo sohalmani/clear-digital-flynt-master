@@ -1,4 +1,4 @@
-flynt-component[name='NavigationFooterColunm'] {
+flynt-component[name='NavigationFooterColumns'] {
   font-size: var(--font-size-body-small);
 
   .footer {
@@ -57,7 +57,7 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__links {
+    &-links {
       li {
         &:not(:first-child) {
           margin-block-start: 30px;
@@ -65,7 +65,7 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__link {
+    &-link {
       color: var(--white);
       transition: color 0.3s ease-in-out;
 
@@ -74,8 +74,8 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__external {
-      &--logo {
+    &-external {
+      &-logo {
         block-size: 75px;
         max-inline-size: 115px;
         position: relative;
@@ -92,18 +92,7 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__icon {
-      block-size: 38px;
-      inline-size: 40px;
-      position: relative;
-
-      img {
-        block-size: 100%;
-        object-fit: contain;
-      }
-    }
-
-    &__main {
+    &-main {
       color: var(--white);
       padding-block-end: 94px;
 
@@ -116,7 +105,7 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__primary {
+    &-primary {
       color: var(--white);
 
       .content-wrapper {
@@ -126,7 +115,7 @@ flynt-component[name='NavigationFooterColunm'] {
       }
     }
 
-    &__primary--wrapper {
+    &-primary-wrapper {
       border-block-start: 1px solid var(--white);
       padding: 50px 0;
     }

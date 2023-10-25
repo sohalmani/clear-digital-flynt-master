@@ -1,0 +1,13 @@
+.footer-primary { 
+  &-items { 
+    @include row(0);
+  }
+
+  .logo-wrap { 
+    @include col(3);
+  }
+
+  .content-wrap { 
+    @include col(7);
+  }
+}
