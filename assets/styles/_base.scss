@@ -457,7 +457,12 @@ flynt-component {
 }
 
 .componentSpacing {
-  padding: var(--component-spacing) 0;
+  margin: var(--component-spacing) 0;
+
+  &[data-theme] {
+    margin: 0;
+    padding: var(--component-spacing) 0;
+  }
 }
 
 .wp-block-post-content > .alignfull {
@@ -479,46 +484,46 @@ flynt-component {
   padding-inline: var(--container-spacing);
   z-index: 5;
 
-  &[data-size=full] {
+  &[data-size="full"] {
     padding-inline: 0;
   }
 }
 
-[data-size=medium] {
+[data-size="medium"] {
   max-inline-size: var(--content-max-width);
 }
 
-[data-size=wide] {
+[data-size="wide"] {
   max-inline-size: var(--content-max-width-wide);
 }
 
-[data-size=full] {
+[data-size="full"] {
   max-inline-size: 100%;
 }
 
-[data-align=left] {
+[data-align="left"] {
   margin-inline: unset;
 }
 
-[data-align=center] {
+[data-align="center"] {
   margin-inline: auto;
 }
 
-[data-text-align=left] {
+[data-text-align="left"] {
   text-align: start;
 }
 
-[data-text-align=center] {
+[data-text-align="center"] {
   text-align: center;
 }
 
-[data-flow=layout] {
+[data-flow="layout"] {
   > * + * {
     margin-block-start: calc(var(--component-spacing) / 2);
   }
 }
 
-[data-flow=content] {
+[data-flow="content"] {
   > * + * {
     margin-block-start: var(--flow-space);
   }
@@ -526,9 +531,9 @@ flynt-component {
 
 // Balance layouted text lines on mobile.
 @media (max-width: #{$breakpoint-tablet - 1}) {
-  [data-size=wide],
-  [data-size=full],
-  [data-text-align=center] {
+  [data-size="wide"],
+  [data-size="full"],
+  [data-text-align="center"] {
     p,
     .paragraph,
     h1, h2, h3, h4, h5, h6,
@@ -592,7 +597,7 @@ flynt-component {
 }
 
 .overlay-grid,
-[data-overlay=grid] {
+[data-overlay="grid"] {
   &::before {
     background-attachment: fixed;
     background-image: url('data:image/svg+xml,<svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 140 140" style="enable-background:new 0 0 140 140;" xml:space="preserve"><g><g><g><path d="M73.4,70c0,1.9-1.5,3.4-3.4,3.4c-1.9,0-3.4-1.5-3.4-3.4c0-1.9,1.5-3.4,3.4-3.4C71.9,66.6,73.4,68.1,73.4,70z"/></g></g><path d="M84,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7c-0.9,0-1.7-0.8-1.7-1.7S83.1,68.3,84,68.3z"/><path d="M98,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7c-0.9,0-1.7-0.8-1.7-1.7S97.1,68.3,98,68.3z"/><path d="M112,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S111.1,68.3,112,68.3z"/><circle cx="126" cy="70" r="1.7"/><path d="M140,68.3c0,1.9,0,1.5,0,3.4c-0.9,0-1.7-0.8-1.7-1.7S139.1,68.3,140,68.3z"/><path d="M71.7,0c0,0.9-0.8,1.7-1.7,1.7S68.3,0.9,68.3,0C69.7,0,69.6,0,71.7,0z"/><path d="M71.7,14c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7S71.7,13.1,71.7,14z"/><path d="M71.7,28c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,27.1,71.7,28z"/><path d="M71.7,42c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7S71.7,41.1,71.7,42z"/><path d="M71.7,56c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,55.1,71.7,56z"/><path d="M0,68.3c0.9,0,1.7,0.8,1.7,1.7S0.9,71.7,0,71.7C0,70.6,0,70,0,68.3z"/><circle cx="14" cy="70" r="1.7"/><path d="M28,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S27.1,68.3,28,68.3z"/><circle cx="42" cy="70" r="1.7"/><path d="M56,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S55.1,68.3,56,68.3z"/><path d="M71.7,84c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,83.1,71.7,84z"/><path d="M71.7,98c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,97.1,71.7,98z"/><path d="M71.7,112c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,111.1,71.7,112z"/><path d="M71.7,126c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,125.1,71.7,126z"/><path d="M71.7,140c-1.7,0-1.7,0-3.4,0c0-0.9,0.8-1.7,1.7-1.7S71.7,139.1,71.7,140z"/></g></svg>');
@@ -612,7 +617,7 @@ flynt-component {
 }
 
 .overlay-tint,
-[data-overlay=tint] {
+[data-overlay="tint"] {
   &::before {
     background-color: #000;
     content: '';
@@ -636,7 +641,7 @@ flynt-component {
   color: var(--color-text);
 }
 
-[data-theme=dark] {
+[data-theme="dark"] {
   /**
   * Buttons
   */
@@ -658,8 +663,8 @@ flynt-component {
 
   &.overlay-grid,
   .overlay-grid,
-  &[data-overlay=grid],
-  [data-overlay=grid] {
+  &[data-overlay="grid"],
+  [data-overlay="grid"] {
     &::before {
       background-image: url('data:image/svg+xml,<svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 140 140" fill="%23FFFFFF" style="enable-background:new 0 0 140 140;" xml:space="preserve"><g><g><g><path class="st0" d="M73.4,70c0,1.9-1.5,3.4-3.4,3.4c-1.9,0-3.4-1.5-3.4-3.4c0-1.9,1.5-3.4,3.4-3.4C71.9,66.6,73.4,68.1,73.4,70z"/></g></g><path class="st0" d="M84,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7c-0.9,0-1.7-0.8-1.7-1.7S83.1,68.3,84,68.3z"/><path class="st0" d="M98,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7c-0.9,0-1.7-0.8-1.7-1.7S97.1,68.3,98,68.3z"/><path class="st0" d="M112,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S111.1,68.3,112,68.3z"/><circle class="st0" cx="126" cy="70" r="1.7"/><path class="st0" d="M140,68.3c0,1.9,0,1.5,0,3.4c-0.9,0-1.7-0.8-1.7-1.7S139.1,68.3,140,68.3z"/><path class="st0" d="M71.7,0c0,0.9-0.8,1.7-1.7,1.7S68.3,0.9,68.3,0C69.7,0,69.6,0,71.7,0z"/><path class="st0" d="M71.7,14c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7S71.7,13.1,71.7,14z"/><path class="st0" d="M71.7,28c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,27.1,71.7,28z"/><path class="st0" d="M71.7,42c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7c0-0.9,0.8-1.7,1.7-1.7S71.7,41.1,71.7,42z"/><path class="st0" d="M71.7,56c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,55.1,71.7,56z"/><path class="st0" d="M0,68.3c0.9,0,1.7,0.8,1.7,1.7S0.9,71.7,0,71.7C0,70.6,0,70,0,68.3z"/><circle class="st0" cx="14" cy="70" r="1.7"/><path class="st0" d="M28,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S27.1,68.3,28,68.3z"/><circle class="st0" cx="42" cy="70" r="1.7"/><path class="st0" d="M56,68.3c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7S55.1,68.3,56,68.3z"/><path class="st0" d="M71.7,84c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,83.1,71.7,84z"/><path class="st0" d="M71.7,98c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,97.1,71.7,98z"/><path class="st0" d="M71.7,112c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,111.1,71.7,112z"/><path class="st0" d="M71.7,126c0,0.9-0.8,1.7-1.7,1.7s-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7S71.7,125.1,71.7,126z"/><path class="st0" d="M71.7,140c-1.7,0-1.7,0-3.4,0c0-0.9,0.8-1.7,1.7-1.7S71.7,139.1,71.7,140z"/></g></svg>');
     }
