@@ -1,11 +1,11 @@
 .footer-primary {
-  padding-block: var(--flow-space-large);
   background-color: var(--color-text);
   color: var(--color-background);
+  padding-block: var(--flow-space-large);
 
   .title { 
-    padding-block-end: var(--flow-space-medium);
     border-block-end: 2px solid var(--color-border);
+    padding-block-end: var(--flow-space-medium);
   }
 
   &-items {
@@ -36,6 +36,7 @@
   .button {
     color: var(--color-background);
   }
+
   .content-wrap {
     @include col(8);
     padding-block-start: var(--flow-space-medium);
