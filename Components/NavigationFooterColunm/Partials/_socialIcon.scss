@@ -1,0 +1,27 @@
+.social {
+  &-icons {
+    column-gap: 20px;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+
+    svg {
+      path {
+        fill: $dark-grey;
+        transition: fill 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $pink;
+        }
+      }
+    }
+  }
+}

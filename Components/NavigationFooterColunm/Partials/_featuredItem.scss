@@ -1,0 +1,15 @@
+ .report-card {
+    position: relative;
+
+    &__img {
+      height: 253px;
+      max-width: 210px;
+      width: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }

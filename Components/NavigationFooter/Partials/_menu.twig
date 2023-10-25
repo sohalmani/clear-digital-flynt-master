@@ -1,10 +1,31 @@
-<ul class="menu">
+{# <ul class="menu">
   {% for item in items %}
-    <li class="item">
-      <a class="link" href="{{ item.link|e('esc_url') }}" {{- item.is_external or item.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' -}}>{{ item.title }}</a>
-      {% if item.children %}
-        {% include 'Partials/_menu.twig' with { 'items': item.children } only %}
-      {% endif %}
-    </li>
+  <li class="item">
+    <a class="link" href="{{ item.link|e('esc_url') }}" {{- item.is_external or item.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' -}}>{{ item.title }}</a>
+    {% if item.children %}
+    {% include 'Partials/_menu.twig' with { 'items': item.children } only %}
+    {% endif %}
+  </li>
   {% endfor %}
+</ul> #}
+
+<ul class="menu">
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">© 2023 Clear Digital , Inc.</a>
+  </li>
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">Email Subscriptions</a>
+  </li>
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">Terms of Use</a>
+  </li>
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">Privacy</a>
+  </li>
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">Cookie Policy</a>
+  </li>
+  <li>
+    <a data-cursor-expand href="/" class="footer-link-sm">Cookie Settings</a>
+  </li>
 </ul>
