@@ -1,13 +1,40 @@
-.footer-primary { 
-  &-items { 
+.footer-primary {
+  padding-block: var(--flow-space-large);
+  background-color: var(--color-text);
+  color: var(--color-background);
+
+  .title { 
+    padding-block-end: var(--flow-space-medium);
+    border-block-end: 2px solid var(--color-border);
+  }
+
+  &-items {
     @include row(0);
   }
 
-  .logo-wrap { 
-    @include col(3);
+  .logo-wrap {
+    @include col(2);
+    padding-block-start: var(--flow-space-medium);
   }
 
-  .content-wrap { 
-    @include col(7);
+  .external-logo {
+    block-size: 75px;
+    max-inline-size: 115px;
+    position: relative;
+
+    @media (max-inline-size: $breakpoint-tablet) {
+      block-size: 65px;
+      max-inline-size: 100px;
+    }
+
+    img {
+      block-size: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .content-wrap {
+    @include col(8);
+    padding-block-start: var(--flow-space-medium);
   }
 }
