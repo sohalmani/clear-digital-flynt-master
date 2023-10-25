@@ -2,14 +2,14 @@
     position: relative;
 
     &__img {
-      height: 253px;
-      max-width: 210px;
-      width: 100%;
+      block-size: 253px;
+      inline-size: 100%;
+      max-inline-size: 210px;
 
       img {
-        height: 100%;
+        block-size: 100%;
+        inline-size: 100%;
         object-fit: cover;
-        width: 100%;
       }
     }
   }

@@ -1,164 +1,164 @@
-flynt-component[name='NavigationFooterColunm'] {
-  font-size: var(--font-size-body-small);
+// flynt-component[name='NavigationFooterColunm'] {
+//   font-size: var(--font-size-body-small);
 
-  .footer {
-    padding-top: 50px;
+//   .footer {
+//     padding-block-start: 50px;
 
-    @include media-breakpoint-up(md) {
-      padding-top: 100px;
-    }
-    @include media-breakpoint-up(lg) {
-      padding-top: 150px;
-    }
+//     @include media-breakpoint-up(md) {
+//       padding-block-start: 100px;
+//     }
+//     @include media-breakpoint-up(lg) {
+//       padding-block-start: 150px;
+//     }
 
-    ul {
-      list-style: none;
-      margin-bottom: 0;
-      padding-left: 0;
-    }
+//     ul {
+//       list-style: none;
+//       margin-block-end: 0;
+//       padding-inline-start: 0;
+//     }
 
-    .contact-links {
-      &__item {
-        cursor: pointer;
-        padding-left: 40px;
-        position: relative;
-        transition: color 0.3s ease-in-out;
+//     .contact-links {
+//       &__item {
+//         cursor: pointer;
+//         padding-inline-start: 40px;
+//         position: relative;
+//         transition: color 0.3s ease-in-out;
 
-        &:not(:first-child) {
-          margin-top: 25px;
-        }
+//         &:not(:first-child) {
+//           margin-block-start: 25px;
+//         }
 
-        &::before {
-          content: '';
-          height: 24px;
-          left: 0;
-          position: absolute;
-          width: 24px;
-        }
+//         &::before {
+//           content: '';
+//           block-size: 24px;
+//           inset-inline-start: 0;
+//           position: absolute;
+//           inline-size: 24px;
+//         }
 
-        &:hover {
-          color: $pink;
-        }
+//         &:hover {
+//           color: $pink;
+//         }
 
-        &--location {
-          &::before {
-            background: url('./../assets/icons/map-pin-pink.svg') no-repeat center;
-            background-size: contain;
-          }
-        }
+//         &--location {
+//           &::before {
+//             background: url('./../assets/icons/map-pin-pink.svg') no-repeat center;
+//             background-size: contain;
+//           }
+//         }
 
-        &--phone {
-          &::before {
-            background: url('./../assets/icons/smartphone-pink.svg') no-repeat center;
-            background-size: contain;
-          }
-        }
-      }
-    }
+//         &--phone {
+//           &::before {
+//             background: url('./../assets/icons/smartphone-pink.svg') no-repeat center;
+//             background-size: contain;
+//           }
+//         }
+//       }
+//     }
 
-    
 
-    &__links {
-      li {
-        &:not(:first-child) {
-          margin-top: 30px;
-        }
-      }
-    }
 
-    &__link {
-      color: $white;
-      transition: color 0.3s ease-in-out;
+//     &__links {
+//       li {
+//         &:not(:first-child) {
+//           margin-block-start: 30px;
+//         }
+//       }
+//     }
 
-      &:hover {
-        color: $pink;
-      }
-    }
+//     &__link {
+//       color: $white;
+//       transition: color 0.3s ease-in-out;
 
-    &__external {
-      &--logo {
-        height: 75px;
-        max-width: 115px;
-        position: relative;
+//       &:hover {
+//         color: $pink;
+//       }
+//     }
 
-        @include media-breakpoint-down(md) {
-          height: 65px;
-          max-width: 100px;
-        }
+//     &__external {
+//       &--logo {
+//         block-size: 75px;
+//         max-inline-size: 115px;
+//         position: relative;
 
-        img {
-          height: 100%;
-          object-fit: contain;
-        }
-      }
-    }
+//         @include media-breakpoint-down(md) {
+//           block-size: 65px;
+//           max-inline-size: 100px;
+//         }
 
-    &__icon {
-      height: 38px;
-      position: relative;
-      width: 40px;
+//         img {
+//           block-size: 100%;
+//           object-fit: contain;
+//         }
+//       }
+//     }
 
-      img {
-        height: 100%;
-        object-fit: contain;
-      }
-    }
+//     &__icon {
+//       block-size: 38px;
+//       position: relative;
+//       inline-size: 40px;
 
-    &__main {
-      color: $white;
-      padding-bottom: 94px;
+//       img {
+//         block-size: 100%;
+//         object-fit: contain;
+//       }
+//     }
 
-      @include media-breakpoint-up(md) {
-        padding-bottom: 144px;
-      }
-      @include media-breakpoint-up(lg) {
-        padding-bottom: 256px;
-      }
-    }
+//     &__main {
+//       color: $white;
+//       padding-block-end: 94px;
 
-    &__primary {
-      color: $white;
+//       @include media-breakpoint-up(md) {
+//         padding-block-end: 144px;
+//       }
+//       @include media-breakpoint-up(lg) {
+//         padding-block-end: 256px;
+//       }
+//     }
 
-      .content-wrapper {
-        @include media-breakpoint-up(lg) {
-          max-width: 73%;
-        }
-      }
-    }
+//     &__primary {
+//       color: $white;
 
-    &__primary--wrapper {
-      border-top: 1px solid $white;
-      padding: 50px 0;
-    }
+//       .content-wrapper {
+//         @include media-breakpoint-up(lg) {
+//           max-inline-size: 73%;
+//         }
+//       }
+//     }
 
-    &__secondary {
-      padding: 30px 0;
+//     &__primary--wrapper {
+//       border-block-start: 1px solid $white;
+//       padding: 50px 0;
+//     }
 
-      ul {
-        column-gap: 15px;
+//     &__secondary {
+//       padding: 30px 0;
 
-        @include media-breakpoint-up(lg) {
-          column-gap: 20px;
-        } 
+//       ul {
+//         column-gap: 15px;
 
-        li {
-          &:not(:first-child) {
-            @include media-breakpoint-down(md) {
-              margin-top: 16px;          
-            }
-          }
+//         @include media-breakpoint-up(lg) {
+//           column-gap: 20px;
+//         }
 
-          a {
-            color: $dark-grey;
-            transition: color 0.3s ease-in-out;
+//         li {
+//           &:not(:first-child) {
+//             @include media-breakpoint-down(md) {
+//               margin-block-start: 16px;
+//             }
+//           }
 
-            &:hover {
-              color: $pink;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           a {
+//             color: $dark-grey;
+//             transition: color 0.3s ease-in-out;
+
+//             &:hover {
+//               color: $pink;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 

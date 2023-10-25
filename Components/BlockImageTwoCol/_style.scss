@@ -24,18 +24,18 @@ flynt-component[name='BlockImageTwoCol'] {
       }
 
       .swiper-button-next {
-        right: calc(-100% + var(--container-spacing)) !important;
+        inset-inline-end: calc(-100% + var(--container-spacing)) !important;
       }
 
       .swiper-button-prev {
-        left: calc(-100% + var(--container-spacing)) !important;
+        inset-inline-start: calc(-100% + var(--container-spacing)) !important;
       }
     }
   }
 
   .column {
     @include col(12);
-    height: 100vh;
+    block-size: 100vh;
     position: relative;
 
     @media (min-width: $breakpoint-tablet) {
@@ -44,37 +44,36 @@ flynt-component[name='BlockImageTwoCol'] {
   }
 
   .figure {
-    height: 100%;
+    block-size: 100%;
     margin: 0;
     overflow: hidden;
     position: relative;
 
     .figure-image {
-      height: 100%;
+      block-size: 100%;
+      inline-size: 100%;
       object-fit: cover;
-      width: 100%;
     }
   }
 
   video {
-    height: 100vh;
+    block-size: 100vh;
+    inline-size: 100%;
     margin: 0;
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    width: 100%;
   }
 
   .content {
-    bottom: var(--component-spacing);
-    left: 0;
-    padding-left: var(--container-spacing);
-    padding-right: var(--container-spacing);
+    inline-size: auto;
+    inset-block-end: var(--component-spacing);
+    inset-inline-start: 0;
+    padding-inline: var(--container-spacing);
     position: absolute;
-    width: auto;
 
     @media (min-width: $breakpoint-desktop) {
-      max-width: 66.66667%;
+      max-inline-size: 66.66667%;
     }
 
     .marker {
@@ -83,15 +82,15 @@ flynt-component[name='BlockImageTwoCol'] {
   }
 
   .logo {
+    block-size: 4rem;
     display: inline-block;
-    height: 4rem;
-    margin-top: var(--flow-space-medium);
-    max-width: 19.5rem;
+    inline-size: 100%;
+    margin-block-start: var(--flow-space-medium);
+    max-inline-size: 19.5rem;
     overflow: hidden;
-    width: 100%;
 
     .logo-image {
-      height: 100%;
+      block-size: 100%;
       object-fit: contain;
     }
   }

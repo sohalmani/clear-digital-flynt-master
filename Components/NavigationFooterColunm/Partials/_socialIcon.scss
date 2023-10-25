@@ -4,10 +4,10 @@
   }
 
   &__icon {
+    block-size: 25px;
     border-radius: 50%;
     display: inline-block;
-    height: 25px;
-    width: 25px;
+    inline-size: 25px;
 
     svg {
       path {

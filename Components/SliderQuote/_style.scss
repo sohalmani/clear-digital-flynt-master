@@ -2,7 +2,7 @@ flynt-component[name='SliderQuote'] {
   overflow: hidden;
 
   .intro {
-    margin-bottom: var(--flow-space-medium);
+    margin-block-end: var(--flow-space-medium);
   }
 
   .testimonials {
@@ -24,7 +24,7 @@ flynt-component[name='SliderQuote'] {
     &-image,
     &-statistics {
       @include col(12);
-      height: 100%;
+      block-size: 100%;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
         @include col(6);
@@ -33,16 +33,16 @@ flynt-component[name='SliderQuote'] {
 
     &-figure,
     &-counter {
-      height: 100%;
+      block-size: 100%;
       margin: 0;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
-        margin-right: calc(((var(--content-max-width-full) - (var(--container-spacing) * 2)) / 12));
+        margin-inline-end: calc(((var(--content-max-width-full) - (var(--container-spacing) * 2)) / 12));
       }
     }
 
     &-figureImage {
-      height: 100%;
+      block-size: 100%;
       object-fit: cover;
       overflow: hidden;
     }
@@ -50,7 +50,7 @@ flynt-component[name='SliderQuote'] {
     &-statistics {
       p {
         font-weight: normal;
-        margin-top: var(--flow-space);
+        margin-block-start: var(--flow-space);
       }
     }
 
@@ -64,11 +64,11 @@ flynt-component[name='SliderQuote'] {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-top: 4rem;
+      margin-block-start: 4rem;
       position: relative;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
-        margin-top: 0;
+        margin-block-start: 0;
       }
     }
 
@@ -82,26 +82,26 @@ flynt-component[name='SliderQuote'] {
 
     &-author {
       color: var(--color-accent);
-      margin-top: var(--flow-space-medium);
+      margin-block-start: var(--flow-space-medium);
     }
 
     &-author-logo {
-      height: 2.2rem;
-      margin-top: var(--flow-space);
-      max-width: 15.7rem;
+      block-size: 2.2rem;
+      margin-block-start: var(--flow-space);
+      max-inline-size: 15.7rem;
 
       img {
-        height: 100%;
+        block-size: 100%;
         object-fit: contain;
       }
     }
 
     &-link {
-      margin-top: var(--flow-space-small);
+      margin-block-start: var(--flow-space-small);
     }
 
     &-sliderProgressbar {
-      margin-top: var(--flow-space-large);
+      margin-block-start: var(--flow-space-large);
     }
 
     &-sliderArrow {
@@ -113,31 +113,29 @@ flynt-component[name='SliderQuote'] {
   }
 
   .logos {
-    margin-top: var(--flow-space-large);
+    margin-block-start: var(--flow-space-large);
     position: relative;
     --gradient-fade-size: 25%;
 
     &::before {
       background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
-      bottom: 0;
+      block-size: 100%;
       content: '';
-      height: 100%;
-      left: 0;
+      inline-size: var(--gradient-fade-size);
+      inset-block: 0;
+      inset-inline-start: 0;
       position: absolute;
-      top: 0;
-      width: var(--gradient-fade-size);
       z-index: 2;
     }
 
     &::after {
       background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-      bottom: 0;
+      block-size: 100%;
       content: '';
-      height: 100%;
+      inline-size: var(--gradient-fade-size);
+      inset-block: 0;
+      inset-inline-end: 0;
       position: absolute;
-      right: 0;
-      top: 0;
-      width: var(--gradient-fade-size);
       z-index: 2;
     }
 
@@ -169,13 +167,13 @@ flynt-component[name='SliderQuote'] {
   }
 
   .logo {
-    height: 8.4rem;
+    block-size: 8.4rem;
     margin: auto;
-    max-width: 19.3rem;
+    max-inline-size: 19.3rem;
     text-align: center;
 
     &-image {
-      height: 100%;
+      block-size: 100%;
       object-fit: contain;
     }
   }

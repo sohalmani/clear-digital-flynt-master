@@ -15,28 +15,28 @@
 ) {
   display: flex;
   flex-wrap: wrap;
+  inline-size: 100%;
   justify-content: $alignment;
-  width: 100%;
 
   > * {
-    width: calc((#{100% / $columns}) -
+    inline-size: calc((#{100% / $columns}) -
     (#{$columns - 1} / #{$columns} * #{$gutter-horizontal}));
 
     &:nth-child(n) {
-      margin-right: $gutter-horizontal;
-      margin-top: 0;
+      margin-block-start: 0;
+      margin-inline-end: $gutter-horizontal;
     }
 
     &:nth-child(1n + #{$columns + 1}) {
-      margin-top: $gutter-vertical;
+      margin-block-start: $gutter-vertical;
     }
 
     &:nth-child(#{$columns}n) {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
 
     &:last-child {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }
@@ -45,11 +45,11 @@
   display: block;
 
   > * {
-    width: auto;
+    inline-size: auto;
 
     &:nth-child(n) {
-      margin-right: 0;
-      margin-top: 0;
+      margin-block-start: 0;
+      margin-inline-end: 0;
     }
   }
 }
@@ -57,12 +57,10 @@
 @mixin row($gutter: null) {
   display: flex;
   flex-wrap: wrap;
-  margin-left: if($gutter != null, $gutter, calc(var(--column-gap) * -1));
-  margin-right: if($gutter != null, $gutter, calc(var(--column-gap) * -1));
+  margin-inline: if($gutter != null, $gutter, calc(var(--column-gap) * -1));
 
   > * {
-    padding-left: if($gutter != null, $gutter, var(--column-gap));
-    padding-right: if($gutter != null, $gutter, var(--column-gap));
+    padding-inline: if($gutter != null, $gutter, var(--column-gap));
   }
 }
 
@@ -70,8 +68,8 @@
   @if $size {
     @if $size == auto {
       flex: 0 0 auto;
-      max-width: 100%; // Reset earlier grid tiers
-      width: auto;
+      inline-size: auto;
+      max-inline-size: 100%; // Reset earlier grid tiers
     } @else if $size == 0 {
       @warn 'Number of columns cannot be zero.';
     } @else if $size > $columns {
@@ -81,15 +79,15 @@
       // Add a `max-width` to ensure content within each column does not blow out
       // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
       // do not appear to require this.
-      max-width: math.percentage(math.div($size, $columns));
-      width: 100%;
+      inline-size: 100%;
+      max-inline-size: math.percentage(math.div($size, $columns));
     }
   } @else {
     // Flexible column with remaining space
     flex-basis: 0;
     flex-grow: 1;
-    max-width: 100%;
-    width: 100%;
+    inline-size: 100%;
+    max-inline-size: 100%;
   }
 }
 
@@ -100,7 +98,7 @@
     @warn 'Offsetting by the width of an entire row isn\'t possible.';
   } @else {
     $num: math.div($size, $columns);
-    margin-left: if($num == 0, 0, math.percentage($num));
+    margin-inline-start: if($num == 0, 0, math.percentage($num));
   }
 }
 
@@ -112,7 +110,7 @@
   } @else {
     > * {
       flex: 0 0 math.div(100%, $count);
-      max-width: math.div(100%, $count);
+      max-inline-size: math.div(100%, $count);
     }
   }
 }
@@ -128,12 +126,11 @@
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.3;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
+  margin-block: 0 1.5rem;
 
   @media (min-width: $breakpoint-tablet) {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
   }
 }
 
@@ -143,11 +140,10 @@
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.3;
-  margin-bottom: 0;
-  margin-top: 1.5rem;
+  margin-block: 1.5rem 0;
 
   @media (min-width: $breakpoint-tablet) {
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-block-start: 2rem;
   }
 }

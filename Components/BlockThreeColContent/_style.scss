@@ -1,6 +1,6 @@
 flynt-component[name='BlockThreeColContent'] {
   .intro {
-    max-width: 117rem;
+    max-inline-size: 117rem;
 
     &-eyebrow {
       @include typography-eyebrow;
@@ -8,7 +8,7 @@ flynt-component[name='BlockThreeColContent'] {
 
     &-blurb {
       @include typography-blurb;
-      margin-top: var(--flow-space-large);
+      margin-block-start: var(--flow-space-large);
     }
   }
 
@@ -16,14 +16,13 @@ flynt-component[name='BlockThreeColContent'] {
     @include row;
 
     .art {
-      padding-left: 0;
-      padding-right: 0;
+      padding-inline: 0;
     }
   }
 
   .feature {
     @include col(12);
-    margin-top: var(--flow-space-large);
+    margin-block-start: var(--flow-space-large);
 
     @media (min-width: $breakpoint-tablet) {
       @include col(6);
@@ -31,7 +30,7 @@ flynt-component[name='BlockThreeColContent'] {
 
     @media (min-width: $breakpoint-tablet-horizontal) {
       @include col(4);
-      padding-right: 8.33333%;
+      padding-inline-end: 8.33333%;
     }
 
     a {
@@ -40,13 +39,13 @@ flynt-component[name='BlockThreeColContent'] {
     }
 
     .icon-wrap {
-      height: 80px;
-      margin-bottom: 2rem;
-      max-width: 80px;
+      block-size: 80px;
+      margin-block-end: 2rem;
+      max-inline-size: 80px;
     }
 
     p {
-      margin-top: 1rem;
+      margin-block-start: 1rem;
     }
   }
 }

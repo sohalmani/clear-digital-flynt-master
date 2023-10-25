@@ -13,7 +13,7 @@ flynt-component[name='NavigationFooter'] {
     li {
       &:not(:first-child) {
         @media (max-width: $breakpoint-tablet) {
-          margin-top: 16px;
+          margin-block-start: 16px;
         }
       }
 
@@ -41,8 +41,8 @@ flynt-component[name='NavigationFooter'] {
     }
 
     &-icon {
-      height: 30px;
-      max-width: 30px;
+      block-size: 30px;
+      max-inline-size: 30px;
       overflow: hidden;
     }
   }

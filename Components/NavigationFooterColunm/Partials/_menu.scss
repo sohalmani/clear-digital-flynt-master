@@ -10,7 +10,7 @@
    li {
      &:not(:first-child) {
        @media (max-width: $breakpoint-tablet) {
-         margin-top: 16px;
+         margin-block-start: 16px;
        }
      }
 

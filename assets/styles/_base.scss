@@ -313,13 +313,13 @@ table {
       background-position: left center;
       background-repeat: no-repeat;
       background-size: contain;
+      block-size: 2rem;
       content: '';
       display: inline-block;
-      height: 2rem;
-      margin-left: 0.5rem;
+      inline-size: 2.2rem;
+      margin-inline-start: 0.5rem;
       transition: background-position 0.2s ease-out;
       vertical-align: middle;
-      width: 2.2rem;
     }
 
     &:hover,
@@ -604,14 +604,14 @@ flynt-component {
     background-position: center;
     background-repeat: repeat;
     background-size: 6rem;
+    block-size: 100%;
     content: '';
     font-size: 0;
-    height: 100%;
-    left: 0;
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     opacity: 0.5;
     position: absolute;
-    top: 0;
-    width: 100%;
     z-index: 3;
   }
 }
@@ -620,14 +620,14 @@ flynt-component {
 [data-overlay="tint"] {
   &::before {
     background-color: #000;
+    block-size: 100%;
     content: '';
     font-size: 0;
-    height: 100%;
-    left: 0;
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     opacity: 0.5;
     position: absolute;
-    top: 0;
-    width: 100%;
     z-index: 3;
   }
 }
@@ -682,37 +682,37 @@ flynt-component {
 }
 
 .swiper-wrapper {
-  height: auto !important;
+  block-size: auto !important;
 }
 
 .swiper-pagination-progressbar {
   background: transparent !important;
-  height: 0.8rem !important;
-  margin-top: 4rem;
+  block-size: 0.8rem !important;
+  margin-block-start: 4rem;
   position: relative !important;
 
   @media (min-width: $breakpoint-tablet) {
-    margin-top: 5rem;
+    margin-block-start: 5rem;
   }
 
   &::before {
     background-color: var(--color-text);
+    block-size: 0.1rem;
     content: '';
     display: block;
-    height: 0.1rem;
+    inline-size: 100%;
+    inset-block-start: 50%;
     position: relative;
-    top: 50%;
     transform: translateY(-50%);
-    width: 100%;
   }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  height: 100% !important;
-  margin-top: 0 !important;
-  top: 0 !important;
-  width: 100% !important;
+  block-size: 100% !important;
+  inline-size: 100% !important;
+  inset-block-start: 0 !important;
+  margin-block-start: 0 !important;
 
   &::after {
     display: none !important;
@@ -725,10 +725,10 @@ flynt-component {
 
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
-  left: -100% !important;
+  inset-inline-start: -100% !important;
 }
 
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
-  right: -100% !important;
+  inset-inline-end: -100% !important;
 }

@@ -1,41 +1,40 @@
 .site-logo {
-  height: 3.5rem;
-  max-width: 11.1rem;
+  block-size: 3.5rem;
+  inline-size: 100%;
+  max-inline-size: 11.1rem;
   position: relative;
-  width: 100%;
 
   &::before {
     background-color: var(--header-background-color);
-    bottom: -100%;
+    block-size: 94%;
     content: "";
-    height: 94%;
+    inline-size: 100%;
+    inset-block-end: -100%;
+    inset-inline-end: 0;
     position: absolute;
-    right: 0;
     transition: var(--header-color-transition);
-    width: 100%;
 
     @media (max-width: $breakpoint-tablet-horizontal) {
-      bottom: -86%;
-      height: 80%;
+      block-size: 80%;
+      inset-block-end: -86%;
     }
   }
 
   &::after {
     background-color: var(--header-background-color);
+    block-size: 100%;
     content: "";
-    height: 100%;
-    left: 0;
+    inline-size: 100%;
+    inset-block-start: -100%;
+    inset-inline-start: 0;
     position: absolute;
-    top: -100%;
     transition: var(--header-color-transition);
-    width: 100%;
   }
 
   >a {
     display: inline-block;
-    margin-left: -1px;
-    margin-right: -1px;
-    width: calc(100% + 2px);
+    inline-size: calc(100% + 2px);
+    margin-inline: -1px;
   }
 
   &-white {
@@ -47,7 +46,7 @@
   }
 
   img {
-    height: 100%;
+    block-size: 100%;
     object-fit: contain;
     opacity: 1;
     transition: opacity 140ms ease-in-out;

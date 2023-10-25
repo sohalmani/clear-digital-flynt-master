@@ -22,7 +22,7 @@ function getACFLayout()
                 'placement' => 'top',
                 'endpoint' => 0,
             ],
-            [ 
+            [
                 'label' => __('Background Overlays', 'flynt'),
                 'instructions' => __('This will overlay above background video and image. You can choose multiple overlays. <br /> Overlays will be displayed in the order selected.', 'flynt'),
                 'name' => 'backgroundOverlays',
@@ -31,7 +31,7 @@ function getACFLayout()
                 'multiple' => 1,
                 'ui' => 1,
                 'ajax' => 0,
-                'choices' => [ 
+                'choices' => [
                     'tint' => __('Tint', 'flynt'),
                     'grid' => __('Grid', 'flynt'),
                 ],
@@ -63,7 +63,7 @@ function getACFLayout()
                 'label' => __('ColThreeItems', 'flynt'),
                 'name' => 'colThreeItems',
                 'type' => 'repeater',
-                'sub_fields' => [ 
+                'sub_fields' => [
                     [
                         'label' => __('Icon', 'flynt'),
                         'name' => 'icon',

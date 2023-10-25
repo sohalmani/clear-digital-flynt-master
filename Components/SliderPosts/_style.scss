@@ -6,10 +6,10 @@ flynt-component[name='SliderPosts'] {
 
     &--logos {
       align-items: center;
-      margin-top: 6rem;
+      margin-block-start: 6rem;
 
       @media (min-width: $breakpoint-tablet) {
-        margin-top: var(--component-spacing);
+        margin-block-start: var(--component-spacing);
       }
     }
   }
@@ -29,10 +29,10 @@ flynt-component[name='SliderPosts'] {
   .posts {
     display: flex;
     flex-wrap: nowrap;
-    margin-top: 4rem;
+    margin-block-start: 4rem;
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     &-outer {
@@ -62,11 +62,11 @@ flynt-component[name='SliderPosts'] {
 
     &-button {
       &-next {
-        right: calc(-100% + 16.66667%) !important;
+        inset-inline-end: calc(-100% + 16.66667%) !important;
       }
 
       &-prev {
-        left: calc(-100% + 8.33333%) !important;
+        inset-inline-start: calc(-100% + 8.33333%) !important;
       }
 
       &-prev {
@@ -78,54 +78,54 @@ flynt-component[name='SliderPosts'] {
   }
 
   .post {
-    height: 30.9rem;
+    block-size: 30.9rem;
     position: relative;
 
     @media (min-width: $breakpoint-mobile-horizontal) {
-      height: 49.3rem;
+      block-size: 49.3rem;
     }
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      height: 51.1rem;
+      block-size: 51.1rem;
     }
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      height: 36rem;
+      block-size: 36rem;
     }
 
     @media (min-width: $breakpoint-desktop) {
-      height: 55rem;
+      block-size: 55rem;
     }
 
     &-outer {
       @include col(11);
 
       &:not(:last-child) {
-        margin-right: calc(var(--column-gap) * 2);
+        margin-inline-end: calc(var(--column-gap) * 2);
       }
 
     }
 
     &-image {
+      block-size: 100%;
       display: block;
-      height: 100%;
       overflow: hidden;
       position: relative;
 
       img {
-        height: 100%;
+        block-size: 100%;
         object-fit: cover;
       }
     }
 
     &-content {
-      bottom: 0;
-      left: 0;
+      inset-block-end: 0;
+      inset-inline-start: 0;
       position: absolute;
 
       p {
         display: none;
-        margin-top: var(--flow-space-medium);
+        margin-block-start: var(--flow-space-medium);
 
         @media (min-width: $breakpoint-tablet) {
           display: block;
@@ -161,14 +161,14 @@ flynt-component[name='SliderPosts'] {
         align-items: center;
         display: flex;
         justify-content: center;
-        margin-top: var(--flow-space-large);
+        margin-block-start: var(--flow-space-large);
 
         @media (min-width: $breakpoint-tablet) {
           @include col(3);
         }
 
         @media (min-width: $breakpoint-tablet-horizontal) {
-          margin-top: 0;
+          margin-block-start: 0;
         }
       }
     }
@@ -176,16 +176,16 @@ flynt-component[name='SliderPosts'] {
 
   .logo {
     align-items: center;
+    block-size: 4.6rem;
     display: flex;
-    height: 4.6rem;
-    max-width: 11.3rem;
+    max-inline-size: 11.3rem;
 
     @media (min-width: $breakpoint-tablet) {
-      max-width: 15.3rem;
+      max-inline-size: 15.3rem;
     }
 
     &-image {
-      height: 100%;
+      block-size: 100%;
       object-fit: contain;
       overflow: hidden;
     }
