@@ -1,42 +1,45 @@
-<flynt-component name="BlockThreeColContent" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} data-overlay="grid">
-	<div class="container">
-		<div class="intro">
-			<span class="intro-eyebrow">20+ years of success.</span>
-			<h2 class="intro-headline">
-        <span class="art art--rocket">We deliver results-driven digital experiences that get you to what’s
-				<span class="marker marker--underline">next</span>.</span>
-      </h2>
-			<p class="intro-blurb">Clear Digital is a Silicon Valley-based website design agency that helps you build and accelerate your web, brand, and digital marketing by providing expert, strategic, and data-informed solutions that deliver results.</p>
-		</div>
-		<div class="features">
+<flynt-component name="BlockThreeColContent" load:on="visible" class="componentSpacing {{- options.componentClasses ? ' ' ~ options.componentClasses -}}" {{ options.componentId ? 'id="' ~ options.componentId ~ '"' }} {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} {{ backgroundOverlays ? 'data-overlay="grid"'}} >
+  <div class="container">
+    <div class="intro">
+      {% if eyebrow %}
+      <div class="intro">
+        <span class="intro-eyebrow">{{ eyebrow }}</span>
+      </div>
+      {% endif %}
+      {% if headline %}
+      <div class="intro">
+        <h3>{{ headline }}</h3>
+      </div>
+      {% endif %}
+      {% if description %}
+      <p class="intro-blurb">{{ description }}</p>
+      {% endif %}
+    </div>
+    {% if colThreeItems %}
+    <div class="features">
       <span class="art art--arrow"></span>
-			<div class="feature">
-        <a href="/">
+      {% for item in colThreeItems %}
+      <div class="feature">
+        {% if item.link.url %}
+        <a href="{{ item.link.url }}" {{ item.link.target ? 'target="' ~ item.link.target ~ '"' }}>
+          {% endif %}
+          {% if item.icon.src %}
           <div class="icon-wrap">
-            <img src="{{ theme.link }}/Components/BlockThreeColContent/Assets/icon-collaboration-focus.svg" width="80" height="80" alt="Logo">
+            <img src="{{ item.icon.src }}" width="{{ item.icon.width }}" height="{{ item.icon.height }}" alt="{{ item.icon.alt }}">
           </div>
-          <h2 class="h4">Collaboration focus.</h2>
-          <p>Torem ipsum dolor sit amet, consectetur adipiscing at elit. Nunc vulputate libero dolore aliqua et.</p>
+          {% endif %}
+          {% if item.title %}
+          <h2 class="h4">{{ item.title }}</h2>
+          {% endif %}
+          {% if item.blurb %}
+          <p>{{ item.blurb }}</p>
+          {% endif %}
+          {% if item.link.url %}
         </a>
-			</div>
-			<div class="feature">
-        <a href="/">
-          <div class="icon-wrap">
-            <img src="{{ theme.link }}/Components/BlockThreeColContent/Assets/icon-b2b-performance.svg" width="80" height="80" alt="Logo">
-          </div>
-          <h2 class="h4">B2B performance driven.</h2>
-          <p>Torem ipsum dolor sit amet, consectetur adipiscing at elit. Nunc vulputate libero dolore aliqua et.</p>
-				</a>
-			</div>
-			<div class="feature">
-        <a href="/">
-          <div class="icon-wrap">
-            <img src="{{ theme.link }}/Components/BlockThreeColContent/Assets/icon-design-development.svg" width="80" height="80" alt="Logo">
-          </div>
-          <h2 class="h4">Design + development excellence.</h2>
-          <p>Torem ipsum dolor sit amet, consectetur adipiscing at elit. Nunc vulputate libero dolore aliqua et.</p>
-				</a>
-			</div>
-		</div>
-	</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
 </flynt-component>
