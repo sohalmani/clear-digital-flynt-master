@@ -33,6 +33,9 @@
     }
   }
 
+  .button {
+    color: var(--color-background);
+  }
   .content-wrap {
     @include col(8);
     padding-block-start: var(--flow-space-medium);
